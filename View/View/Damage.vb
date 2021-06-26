@@ -148,18 +148,23 @@
         ReDim lngSort(0 To 31)
 
         With grdDamage
-            .RowCount = 36
+            .RowCount = 35
             If (nMode = 2) Then
                 .ColumnCount = 3
             Else
                 .ColumnCount = 33
             End If
-            .Columns(0).HeaderText = "乱数"
-            .Columns(0).Width = 48
-            For Y = 0 To 32
-                .Rows(Y).Cells(0).Value = Y + 111
-            Next
-            .Rows(35).Cells(0).Value = "平均"
+            With .Columns(0)
+                .HeaderText = "乱数"
+                .Width = 48
+                .Frozen = True
+            End With
+
+            For Y = 0 To 31
+                .Rows(Y).Cells(0).Value = Y + 112
+                .Rows(Y).Cells(0).Style.BackColor = Color.LightGray
+            Next Y
+            .Rows(34).Cells(0).Value = "平均"
 
             If (nMode = 0) Then
                 ' 敵を攻撃した時のダメージ
@@ -346,6 +351,16 @@
         optMode1.Checked = True
 
         mblnFlagEvent = True
+        RunCalcButtonHandler()
+    End Sub
+
+    Private Sub Damage_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        If mblnFlagEvent = False Then Exit Sub
+
+        With grdDamage
+            .Width = Me.Width - 32
+            .Height = Me.Height - 180
+        End With
     End Sub
 
     Private Sub updLevel_ValueChanged(sender As Object, e As EventArgs) Handles updLevel.ValueChanged
@@ -376,4 +391,5 @@
         cmbEnemy.Enabled = optMode2.Checked
         RunCalcButtonHandler()
     End Sub
+
 End Class
