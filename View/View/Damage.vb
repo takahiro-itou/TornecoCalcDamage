@@ -13,6 +13,21 @@
     ' イベントチェーンの抑制フラグ
     Private mblnFlagEvent As Boolean
 
+    ' 定数
+    Private Const GRID_HEADER_COL_RAND As Integer = 0
+    Private Const NUM_FIXED_COLUMNS As Integer = 1
+    Private Const NUM_MONSTERS As Integer = 32
+
+    Private Const GRID_EXTRA_ROW_STATUS As Integer = 0
+    Private Const GRID_EXTRA_ROW_MAX As Integer = 1
+    Private Const GRID_EXTRA_ROW_MIN As Integer = 2
+    Private Const GRID_EXTRA_ROW_AVERAGE As Integer = 3
+    Private Const NUM_HEADER_ROWS As Integer = 4
+
+    Private Const NUM_RAND_RANGES As Integer = 32
+    Private Const TABLE_EXTRA_INDEX_SUM As Integer = NUM_RAND_RANGES
+
+    Private Const RAND_RANGE_MIN As Integer = 112
 
     '------------------------------------------------------------------------------
     ' 攻撃力と守備力、及び乱数から、ダメージを計算する
@@ -57,27 +72,31 @@
         lblAttack.Text = mlngTableAttack(nLevel) & "+" & lngAdjust & "=" & lngAttack
 
         ' 各ダメージを計算し、テーブルに記録する
-        ReDim mlngAtkDamage(0 To 31, 0 To 32)
-        ReDim mlngDefDamage(0 To 31, 0 To 32)
+        ReDim mlngAtkDamage(0 To NUM_MONSTERS - 1, 0 To NUM_RAND_RANGES)
+        ReDim mlngDefDamage(0 To NUM_MONSTERS - 1, 0 To NUM_RAND_RANGES)
 
-        For lngEnemy = 0 To 31
+        For lngEnemy = 0 To NUM_MONSTERS - 1
             lngAtkTotal = 0
             lngDefTotal = 0
 
-            For lngRand = 0 To 31
+            For lngRand = 0 To NUM_RAND_RANGES - 1
                 ' 敵を攻撃した時に与えるダメージ
-                lngDamage = CalcDamage(lngAttack, mlngTableEnemyD(lngEnemy), lngRand + 112)
+                lngDamage = CalcDamage( _
+                        lngAttack, mlngTableEnemyD(lngEnemy), _
+                        lngRand + RAND_RANGE_MIN)
                 mlngAtkDamage(lngEnemy, lngRand) = lngDamage
                 lngAtkTotal = lngAtkTotal + lngDamage
 
                 ' 敵から受けるダメージ
-                lngDamage = CalcDamage(mlngTableEnemyA(lngEnemy), nShield, lngRand + 112)
+                lngDamage = CalcDamage( _
+                        mlngTableEnemyA(lngEnemy), nShield, _
+                        lngRand + RAND_RANGE_MIN)
                 mlngDefDamage(lngEnemy, lngRand) = lngDamage
                 lngDefTotal = lngDefTotal + lngDamage
             Next lngRand
 
-            mlngAtkDamage(lngEnemy, 32) = lngAtkTotal
-            mlngDefDamage(lngEnemy, 32) = lngDefTotal
+            mlngAtkDamage(lngEnemy, TABLE_EXTRA_INDEX_SUM) = lngAtkTotal
+            mlngDefDamage(lngEnemy, TABLE_EXTRA_INDEX_SUM) = lngDefTotal
         Next lngEnemy
     End Sub
 
@@ -101,6 +120,59 @@
             lngMode = 2
         End If
         UpdateDamageTable(lngMode, cmbEnemy.SelectedIndex)
+    End Sub
+
+    '------------------------------------------------------------------------------
+    ' データを表示する
+    '------------------------------------------------------------------------------
+    Private Sub ShowEnemyDamageTableData(ByRef lpData(,) As Integer, _
+                              ByRef lpStatus() As Integer, _
+                              ByVal strStatus As String)
+        Dim X As Integer, Y As Integer
+        Dim lngSort() As Integer
+        Dim lngIndex As Integer
+        Dim lngSumValue As Integer
+
+        ' 敵側のステータス順にソートする
+        ReDim lngSort(0 To 31)
+        SortList(lngSort, lpStatus, 0, NUM_MONSTERS - 1)
+
+        With grdDamage
+            With .Rows(GRID_EXTRA_ROW_STATUS)
+                .Cells(GRID_EXTRA_ROW_STATUS).Value = strStatus
+            End With
+
+            ' 表示する
+            For X = 0 To NUM_MONSTERS - 1
+                lngIndex = lngSort(X)
+                .Columns(X + 1).Width = 40
+                .Columns(X + 1).HeaderText = mstrEnemyName(lngIndex)
+
+                For Y = 0 To NUM_RAND_RANGES - 1
+                    .Rows(Y + NUM_HEADER_ROWS).Cells(X + 1).Value = lpData(lngIndex, Y)
+                Next Y
+
+                With .Rows(GRID_EXTRA_ROW_STATUS)
+                    .Cells(X + 1).Value = lpStatus(lngIndex)
+                    .Cells(X + 1).Style.BackColor = Color.LightGray
+                End With
+                With .Rows(GRID_EXTRA_ROW_MAX)
+                    .Cells(X + 1).Value = lpData(lngIndex, NUM_RAND_RANGES - 1)
+                    .Cells(X + 1).Style.BackColor = Color.LightYellow
+                End With
+                With .Rows(GRID_EXTRA_ROW_MIN)
+                    .Cells(X + 1).Value = lpData(lngIndex, 0)
+                    .Cells(X + 1).Style.BackColor = Color.LightYellow
+                End With
+                With .Rows(GRID_EXTRA_ROW_AVERAGE)
+                    lngSumValue = lpData(lngIndex, TABLE_EXTRA_INDEX_SUM)
+                    .Cells(X + 1).Value = Format$( _
+                            lngSumValue / NUM_RAND_RANGES, "#0.0")
+                    .Cells(X + 1).Style.BackColor = Color.LightYellow
+                End With
+            Next X
+        End With
+
     End Sub
 
     '------------------------------------------------------------------------------
@@ -141,109 +213,94 @@
     ' ダメージのリストを表示する
     '------------------------------------------------------------------------------
     Private Sub UpdateDamageTable(ByVal nMode As Long, ByVal nEnemy As Long)
-        Dim X As Integer, Y As Integer
-        Dim lngSort() As Integer
-        Dim lngIndex As Integer
-
-        ReDim lngSort(0 To 31)
+        Dim Y As Integer
+        Dim lngSumValue As Integer
 
         With grdDamage
-            .RowCount = 35
+            .RowCount = NUM_RAND_RANGES + NUM_HEADER_ROWS
             If (nMode = 2) Then
                 .ColumnCount = 3
             Else
-                .ColumnCount = 33
+                .ColumnCount = NUM_MONSTERS + NUM_FIXED_COLUMNS
             End If
-            With .Columns(0)
+            With .Columns(GRID_HEADER_COL_RAND)
                 .HeaderText = "乱数"
                 .Width = 48
                 .Frozen = True
             End With
+            With .Rows(NUM_HEADER_ROWS - 1)
+                .Frozen = True
+            End With
 
-            For Y = 0 To 31
-                .Rows(Y).Cells(0).Value = Y + 112
-                .Rows(Y).Cells(0).Style.BackColor = Color.LightGray
-            Next Y
-            .Rows(34).Cells(0).Value = "平均"
-
-            If (nMode = 0) Then
-                ' 敵を攻撃した時のダメージ
-                .Rows(33).Cells(0).Value = "守備力"
-
-                ' 守備力順にソートする
-                SortList(lngSort, mlngTableEnemyD, 0, 31)
-
-                ' 表示する
-                For X = 0 To 31
-                    lngIndex = lngSort(X)
-                    .Columns(X + 1).Width = 40
-                    .Columns(X + 1).HeaderText = mstrEnemyName(X)
-                    For Y = 0 To 31
-                        .Rows(Y).Cells(X + 1).Value = mlngAtkDamage(lngIndex, Y)
-                    Next Y
-                    .Rows(33).Cells(X + 1).Value = mlngTableEnemyD(lngIndex)
-                    .Rows(34).Cells(X + 1).Value = Format$( _
-                        mlngAtkDamage(lngIndex, 32) / 32, "#0.0")
-                    .Rows(32).Cells(X + 1).Value = ""
-                Next X
-
-            ElseIf (nMode = 1) Then
-                ' 敵の攻撃を受けた時のダメージ
-                .Rows(33).Cells(0).Value = "攻撃力"
-
-                ' 攻撃力順にソートする
-                SortList(lngSort, mlngTableEnemyA, 0, 31)
-
-                ' 表示する
-                For X = 0 To 31
-                    lngIndex = lngSort(X)
-                    .Columns(X + 1).Width = 40
-                    .Columns(X + 1).HeaderText = mstrEnemyName(lngIndex)
-                    For Y = 0 To 31
-                        .Rows(Y).Cells(X + 1).Value = mlngDefDamage(lngIndex, Y)
-                    Next Y
-                    .Rows(33).Cells(X + 1).Value = mlngTableEnemyA(lngIndex)
-                    .Rows(34).Cells(X + 1).Value = Format$( _
-                        mlngDefDamage(lngIndex, 32) / 32, "#0.0")
-                    .Rows(32).Cells(X + 1).Value = ""
-                Next X
-
-            ElseIf (nMode = 2) Then
-                ' 特定の敵との戦闘
-                With .Columns(1)
-                    .Width = 48
-                    .HeaderText = "敵への攻撃"
-                End With
-                With .Columns(2)
-                    .Width = 48
-                    .HeaderText = "敵からの攻撃"
-                End With
-                .Rows(33).Cells(0).Value = "攻／守"
-
-                For Y = 0 To 31
-                    With .Rows(Y)
-                        .Cells(1).Value = mlngAtkDamage(nEnemy, Y)
-                        .Cells(2).Value = mlngDefDamage(nEnemy, Y)
+            For Y = 0 To NUM_RAND_RANGES - 1
+                With .Rows(Y + NUM_HEADER_ROWS)
+                    With .Cells(GRID_HEADER_COL_RAND)
+                        .Value = Y + RAND_RANGE_MIN
+                        .Style.BackColor = Color.LightGray
                     End With
-                Next Y
+                End With
+            Next Y
+            With .Rows(GRID_EXTRA_ROW_MAX)
+                With .Cells(GRID_HEADER_COL_RAND)
+                    .Value = "最大"
+                    .Style.BackColor = Color.LightGray
+                End With
+            End With
+            With .Rows(GRID_EXTRA_ROW_MIN)
+                With .Cells(GRID_HEADER_COL_RAND)
+                    .Value = "最小"
+                    .Style.BackColor = Color.LightGray
+                End With
+            End With
+            With .Rows(GRID_EXTRA_ROW_AVERAGE)
+                With .Cells(GRID_HEADER_COL_RAND)
+                    .Value = "平均"
+                    .Style.BackColor = Color.LightGray
+                End With
+            End With
+        End With
 
-                With .Rows(32)
-                    .Cells(0).Value = ""
-                    .Cells(1).Value = ""
-                    .Cells(2).Value = ""
-                End With
-                With .Rows(33)
-                    .Cells(0).Value = "攻／守"
-                    .Cells(1).Value = mlngTableEnemyA(nEnemy)
-                    .Cells(2).Value = mlngTableEnemyD(nEnemy)
-                End With
-                With .Rows(34)
-                    .Cells(0).Value = "平均"
-                    .Cells(1).Value = Format$(mlngAtkDamage(nEnemy, 32) / 32, "#0.0##")
-                    .Cells(2).Value = Format$(mlngDefDamage(nEnemy, 32) / 32, "#0.0##")
-                End With
-            End If
+        If (nMode = 0) Then
+            ' 敵を攻撃した時のダメージ
+            ShowEnemyDamageTableData(mlngAtkDamage, mlngTableEnemyD, "守備力")
+            Exit Sub
+        ElseIf (nMode = 1) Then
+            ' 敵の攻撃を受けた時のダメージ
+            ShowEnemyDamageTableData(mlngDefDamage, mlngTableEnemyA, "攻撃力")
+            Exit Sub
+        End If
 
+        With grdDamage
+            ' 特定の敵との戦闘
+            With .Columns(1)
+                .Width = 48
+                .HeaderText = "敵への攻撃"
+            End With
+            With .Columns(2)
+                .Width = 48
+                .HeaderText = "敵からの攻撃"
+            End With
+            .Rows(33).Cells(0).Value = "攻／守"
+
+            For Y = 0 To NUM_RAND_RANGES - 1
+                With .Rows(Y + NUM_HEADER_ROWS)
+                    .Cells(1).Value = mlngAtkDamage(nEnemy, Y)
+                    .Cells(2).Value = mlngDefDamage(nEnemy, Y)
+                End With
+            Next Y
+
+            With .Rows(GRID_EXTRA_ROW_STATUS)
+                .Cells(0).Value = "攻／守"
+                .Cells(1).Value = mlngTableEnemyA(nEnemy)
+                .Cells(2).Value = mlngTableEnemyD(nEnemy)
+            End With
+            With .Rows(GRID_EXTRA_ROW_AVERAGE)
+                .Cells(0).Value = "平均"
+                lngSumValue = mlngAtkDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
+                .Cells(1).Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
+                lngSumValue = mlngDefDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
+                .Cells(2).Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
+            End With
         End With
 
     End Sub
