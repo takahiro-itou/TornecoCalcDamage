@@ -18,7 +18,7 @@ Partial Class Damage
     Private components As System.ComponentModel.IContainer
 
     'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
+    'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
@@ -37,18 +37,18 @@ Partial Class Damage
         Me.updLevel = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.fraMode = New System.Windows.Forms.GroupBox()
-        Me.optMode0 = New System.Windows.Forms.RadioButton()
-        Me.optMode1 = New System.Windows.Forms.RadioButton()
-        Me.optMode2 = New System.Windows.Forms.RadioButton()
         Me.cmbEnemy = New System.Windows.Forms.ComboBox()
-        CType(Me.grdDamage, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.fraStatus.SuspendLayout()
-        CType(Me.updShield, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.updWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.updPower, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.updLevel, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.fraMode.SuspendLayout()
-        Me.SuspendLayout()
+        Me.optMode2 = New System.Windows.Forms.RadioButton()
+        Me.optMode1 = New System.Windows.Forms.RadioButton()
+        Me.optMode0 = New System.Windows.Forms.RadioButton()
+        CType(Me.grdDamage,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.fraStatus.SuspendLayout
+        CType(Me.updShield,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.updWeapon,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.updPower,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.updLevel,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.fraMode.SuspendLayout
+        Me.SuspendLayout
         '
         'cmdOK
         '
@@ -57,7 +57,7 @@ Partial Class Damage
         Me.cmdOK.Size = New System.Drawing.Size(81, 33)
         Me.cmdOK.TabIndex = 0
         Me.cmdOK.Text = "計算(&C)"
-        Me.cmdOK.UseVisualStyleBackColor = True
+        Me.cmdOK.UseVisualStyleBackColor = true
         '
         'cmdExit
         '
@@ -67,7 +67,7 @@ Partial Class Damage
         Me.cmdExit.Size = New System.Drawing.Size(81, 33)
         Me.cmdExit.TabIndex = 1
         Me.cmdExit.Text = "終了(&X)"
-        Me.cmdExit.UseVisualStyleBackColor = True
+        Me.cmdExit.UseVisualStyleBackColor = true
         '
         'grdDamage
         '
@@ -95,7 +95,7 @@ Partial Class Damage
         Me.fraStatus.Name = "fraStatus"
         Me.fraStatus.Size = New System.Drawing.Size(457, 121)
         Me.fraStatus.TabIndex = 3
-        Me.fraStatus.TabStop = False
+        Me.fraStatus.TabStop = false
         Me.fraStatus.Text = "トルネコのステータス"
         '
         'lblAttack
@@ -208,30 +208,17 @@ Partial Class Damage
         Me.fraMode.Name = "fraMode"
         Me.fraMode.Size = New System.Drawing.Size(233, 121)
         Me.fraMode.TabIndex = 14
-        Me.fraMode.TabStop = False
+        Me.fraMode.TabStop = false
         Me.fraMode.Text = "表示する内容"
         '
-        'optMode0
+        'cmbEnemy
         '
-        Me.optMode0.BackColor = System.Drawing.Color.White
-        Me.optMode0.Location = New System.Drawing.Point(8, 16)
-        Me.optMode0.Name = "optMode0"
-        Me.optMode0.Size = New System.Drawing.Size(217, 17)
-        Me.optMode0.TabIndex = 15
-        Me.optMode0.TabStop = True
-        Me.optMode0.Text = "敵を攻撃した時のダメージ"
-        Me.optMode0.UseVisualStyleBackColor = False
-        '
-        'optMode1
-        '
-        Me.optMode1.BackColor = System.Drawing.Color.White
-        Me.optMode1.Location = New System.Drawing.Point(8, 40)
-        Me.optMode1.Name = "optMode1"
-        Me.optMode1.Size = New System.Drawing.Size(217, 17)
-        Me.optMode1.TabIndex = 16
-        Me.optMode1.TabStop = True
-        Me.optMode1.Text = "敵から受けるダメージ"
-        Me.optMode1.UseVisualStyleBackColor = False
+        Me.cmbEnemy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbEnemy.FormattingEnabled = true
+        Me.cmbEnemy.Location = New System.Drawing.Point(8, 88)
+        Me.cmbEnemy.Name = "cmbEnemy"
+        Me.cmbEnemy.Size = New System.Drawing.Size(217, 20)
+        Me.cmbEnemy.TabIndex = 18
         '
         'optMode2
         '
@@ -240,23 +227,36 @@ Partial Class Damage
         Me.optMode2.Name = "optMode2"
         Me.optMode2.Size = New System.Drawing.Size(217, 17)
         Me.optMode2.TabIndex = 17
-        Me.optMode2.TabStop = True
+        Me.optMode2.TabStop = true
         Me.optMode2.Text = "特定の敵との戦闘"
-        Me.optMode2.UseVisualStyleBackColor = False
+        Me.optMode2.UseVisualStyleBackColor = false
         '
-        'cmbEnemy
+        'optMode1
         '
-        Me.cmbEnemy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbEnemy.FormattingEnabled = True
-        Me.cmbEnemy.Location = New System.Drawing.Point(8, 88)
-        Me.cmbEnemy.Name = "cmbEnemy"
-        Me.cmbEnemy.Size = New System.Drawing.Size(217, 20)
-        Me.cmbEnemy.TabIndex = 18
+        Me.optMode1.BackColor = System.Drawing.Color.White
+        Me.optMode1.Location = New System.Drawing.Point(8, 40)
+        Me.optMode1.Name = "optMode1"
+        Me.optMode1.Size = New System.Drawing.Size(217, 17)
+        Me.optMode1.TabIndex = 16
+        Me.optMode1.TabStop = true
+        Me.optMode1.Text = "敵から受けるダメージ"
+        Me.optMode1.UseVisualStyleBackColor = false
+        '
+        'optMode0
+        '
+        Me.optMode0.BackColor = System.Drawing.Color.White
+        Me.optMode0.Location = New System.Drawing.Point(8, 16)
+        Me.optMode0.Name = "optMode0"
+        Me.optMode0.Size = New System.Drawing.Size(217, 17)
+        Me.optMode0.TabIndex = 15
+        Me.optMode0.TabStop = true
+        Me.optMode0.Text = "敵を攻撃した時のダメージ"
+        Me.optMode0.UseVisualStyleBackColor = false
         '
         'Damage
         '
         Me.AcceptButton = Me.cmdOK
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 12!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.cmdExit
         Me.ClientSize = New System.Drawing.Size(929, 709)
@@ -266,18 +266,20 @@ Partial Class Damage
         Me.Controls.Add(Me.cmdExit)
         Me.Controls.Add(Me.cmdOK)
         Me.Location = New System.Drawing.Point(0, 56)
+        Me.MinimumSize = New System.Drawing.Size(945, 748)
         Me.Name = "Damage"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "トルネコの大冒険　戦闘ダメージ計算"
-        CType(Me.grdDamage, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.fraStatus.ResumeLayout(False)
-        CType(Me.updShield, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.updWeapon, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.updPower, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.updLevel, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.fraMode.ResumeLayout(False)
-        Me.ResumeLayout(False)
+        CType(Me.grdDamage,System.ComponentModel.ISupportInitialize).EndInit
+        Me.fraStatus.ResumeLayout(false)
+        CType(Me.updShield,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.updWeapon,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.updPower,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.updLevel,System.ComponentModel.ISupportInitialize).EndInit
+        Me.fraMode.ResumeLayout(false)
+        Me.ResumeLayout(false)
 
-    End Sub
+End Sub
     Friend WithEvents cmdOK As System.Windows.Forms.Button
     Friend WithEvents cmdExit As System.Windows.Forms.Button
     Friend WithEvents grdDamage As System.Windows.Forms.DataGridView
