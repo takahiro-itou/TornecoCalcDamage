@@ -118,69 +118,49 @@
     '------------------------------------------------------------------------------
     ' データをロードする
     '------------------------------------------------------------------------------
-    Private Function LoadTableData()
-        Dim i As Integer
-        Dim strData As String
+    Private Function LoadTableData() As Boolean
 
         ' 基本攻撃力
-        ReDim mlngTableAttack(37)
-        strData = "  5,  7,  9, 11, 13, 16, 19, 22, 25, 29, 33, 37, 41, 46, 51, 56, 61, 65, 71," & _
-                  " 74, 77, 80, 83, 86, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,100,100"
-        For i = 1 To 37
-            mlngTableAttack(i) = Val(Mid$(strData, i * 4 - 3, 3))
-        Next i
+        mlngTableAttack = New Integer(37) {
+            0, 5, 7, 9, 11, 13, 16, 19, 22, 25, 29, 33, 37, 41, 46, 51, 56, 61, 65, 71, _
+            74, 77, 80, 83, 86, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 100
+        }
 
         ' 敵の名前
-        ReDim mstrEnemyName(0 To 31)
-        mstrEnemyName(0) = ("スライム")
-        mstrEnemyName(1) = ("ゴースト")
-        mstrEnemyName(2) = ("ドラキー")
-        mstrEnemyName(3) = ("おおなめくじ")
-        mstrEnemyName(4) = ("ももんじゃ")
-        mstrEnemyName(5) = ("リリパット")
-        mstrEnemyName(6) = ("おばけキノコ")
-        mstrEnemyName(7) = ("スモールグール")
-        mstrEnemyName(8) = ("わらいぶくろ")
-        mstrEnemyName(9) = ("イエティ")
-        mstrEnemyName(10) = ("まどうし")
-        mstrEnemyName(11) = ("ミイラおとこ")
-        mstrEnemyName(12) = ("きめんどうし")
-        mstrEnemyName(13) = ("ベビーサタン")
-        mstrEnemyName(14) = ("マネマネ")
-        mstrEnemyName(15) = ("キメラ")
-        mstrEnemyName(16) = ("くさったしたい")
-        mstrEnemyName(17) = ("ミミック")
-        mstrEnemyName(18) = ("ばくだんいわ")
-        mstrEnemyName(19) = ("どろにんぎょう")
-        mstrEnemyName(20) = ("さまようよろい")
-        mstrEnemyName(21) = ("マドハンド")
-        mstrEnemyName(22) = ("うごくせきぞう")
-        mstrEnemyName(23) = ("シャドー")
-        mstrEnemyName(24) = ("ミステリードール")
-        mstrEnemyName(25) = ("ゴーレム")
-        mstrEnemyName(26) = ("おおめだま")
-        mstrEnemyName(27) = ("ギガンテス")
-        mstrEnemyName(28) = ("はぐれメタル")
-        mstrEnemyName(29) = ("シルバーデビル")
-        mstrEnemyName(30) = ("アークデーモン")
-        mstrEnemyName(31) = ("ドラゴン")
+        mstrEnemyName = New String(0 To NUM_MONSTERS - 1) {
+            "スライム", "ゴースト", "ドラキー", "おおなめくじ",
+            "ももんじゃ", "リリパット", "おばけキノコ", "スモールグール",
+            "わらいぶくろ", "イエティ", "まどうし", "ミイラおとこ",
+            "きめんどうし", "ベビーサタン", "マネマネ", "キメラ",
+            "くさったしたい", "ミミック", "ばくだんいわ", "どろ人形",
+            "さまようよろい", "マドハンド", "うごくせきぞう", "シャドー",
+            "ミステリードール", "ゴーレム", "おおめだま", "ギガンテス",
+            "はぐれメタル", "シルバーデビル", "アークデーモン", "ドラゴン"
+        }
+
+        ' 敵のヒットポイント
+        mlngTableEnemyHP = New Integer(0 To NUM_MONSTERS - 1) {
+            5, 5, 7, 7, 8, 9, 17, 10,
+            20, 60, 16, 16, 23, 40, 80, 27,
+            30, 50, 70, 36, 35, 72, 45, 60,
+            70, 52, 62, 51, 3, 78, 75, 100
+        }
 
         ' 敵の攻撃力
-        ReDim mlngTableEnemyA(0 To 31)
-        strData = "  2,  3,  3,  2,  4,  4,  6,  4,  0, 11,  6, 10, 10,  0,  9, 22" & _
-          "  0, 24, 12, 13, 15,  7, 18, 17, 17, 32, 31, 51, 30, 26, 51, 68"
-        For i = 0 To 31
-            mlngTableEnemyA(i) = Val(Mid$(strData, i * 4 + 1, 3))
-        Next
+        mlngTableEnemyA = New Integer(0 To NUM_MONSTERS - 1) {
+            2, 3, 3, 2, 4, 4, 6, 4,
+            0, 11, 6, 10, 10, 0, 9, 22,
+            0, 24, 12, 13, 15, 7, 18, 17,
+            17, 32, 31, 51, 30, 26, 51, 68
+        }
 
         ' 敵の守備力
-        ReDim mlngTableEnemyD(0 To 31)
-        strData = "  1,  9,  1,  4,  9, 15,  8, 15, 16,  3, 11, 19, 16, 17, 14, 16" & _
-          " 19, 24, 23, 23, 26, 23, 27, 27, 24, 27, 27, 27, 49, 25, 29, 30"
-        For i = 0 To 31
-            mlngTableEnemyD(i) = Val(Mid$(strData, i * 4 + 1, 3))
-        Next
-
+        mlngTableEnemyD = New Integer(0 To NUM_MONSTERS - 1) {
+            1, 9, 1, 4, 9, 15, 8, 15,
+            16, 3, 11, 19, 16, 17, 14, 16,
+            19, 24, 23, 23, 26, 23, 27, 27,
+            24, 27, 27, 27, 49, 25, 29, 30
+        }
 
         LoadTableData = True
     End Function
