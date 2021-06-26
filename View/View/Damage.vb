@@ -16,16 +16,44 @@
     '------------------------------------------------------------------------------
     ' 攻撃力と守備力、及び乱数から、ダメージを計算する
     '------------------------------------------------------------------------------
-    Private Function CalcDamage(ByVal nAttack As Long, ByVal nDefense As Long,
-                                ByVal nRand As Long) As Long
+    Private Function CalcDamage(ByVal nAttack As Integer, ByVal nDefense As Integer,
+                                ByVal nRand As Integer) As Integer
+        Dim i As Integer
+        Dim lngValue As Integer
 
+        lngValue = nAttack * nRand
+        For i = 1 To nDefense
+            lngValue = lngValue - Int(lngValue \ 16)
+        Next
+
+        CalcDamage = Int(lngValue \ 128)
     End Function
 
     '------------------------------------------------------------------------------
     ' ダメージを計算する
     '------------------------------------------------------------------------------
-    Private Sub CalcDamageTable(ByVal nLevel As Long, ByVal nPower As Long, _
-                                ByVal nWeapon As Long, ByVal nShield As Long)
+    Private Sub CalcDamageTable(ByVal nLevel As Integer, ByVal nPower As Integer, _
+                                ByVal nWeapon As Integer, ByVal nShield As Integer)
+        Dim lngAttack As Integer
+        Dim lngAdjust As Integer
+        Dim lngEnemy As Integer
+        Dim lngRand As Integer
+        Dim lngDamage As Integer
+        Dim lngAtkTotal As Integer
+        Dim lngDefTotal As Integer
+
+        ' トルネコの攻撃力を計算する
+        lngAttack = mlngTableAttack(nLevel)
+        lngAdjust = nPower + nWeapon - 8
+        lngAdjust = Int(lngAttack * lngAdjust / 16 + 0.5)
+        If (lngAdjust <= -255) Then lngAdjust = -255
+
+        lngAttack = lngAttack + lngAdjust
+        If (lngAttack < 0) Then lngAttack = lngAttack + 256
+        If (lngAttack >= 255) Then lngAttack = 255
+
+        ' 攻撃力を表示する
+        lblAttack.Text = mlngTableAttack(nLevel) & "+" & lngAdjust & "=" & lngAttack
 
     End Sub
 
@@ -37,7 +65,7 @@
         Dim lngMode As Integer
         Dim lngAttack As Integer
 
-        If mblnFlagEvent = True Then Exit Sub
+        If mblnFlagEvent = False Then Exit Sub
 
         ' ダメージテーブルを計算する
         CalcDamageTable(updLevel.Value, updPower.Value, updWeapon.Value, updShield.Value)
@@ -90,7 +118,7 @@
         Dim strData As String
 
         ' 初期化中のイベントの処理を無効化しておく
-        mblnFlagEvent = True
+        mblnFlagEvent = False
 
         ' 基本攻撃力
         ReDim mlngTableAttack(37)
@@ -164,7 +192,27 @@
         updShield.Value = 0
         optMode1.Checked = True
 
-        mblnFlagEvent = False
+        mblnFlagEvent = True
+    End Sub
+
+    Private Sub updLevel_ValueChanged(sender As Object, e As EventArgs) Handles updLevel.ValueChanged
+        If mblnFlagEvent = False Then Exit Sub
+        RunCalcButtonHandler()
+    End Sub
+
+    Private Sub updPower_ValueChanged(sender As Object, e As EventArgs) Handles updPower.ValueChanged
+        If mblnFlagEvent = False Then Exit Sub
+        RunCalcButtonHandler()
+    End Sub
+
+    Private Sub updShield_ValueChanged(sender As Object, e As EventArgs) Handles updShield.ValueChanged
+        If mblnFlagEvent = False Then Exit Sub
+        RunCalcButtonHandler()
+    End Sub
+
+    Private Sub updWeapon_ValueChanged(sender As Object, e As EventArgs) Handles updWeapon.ValueChanged
+        If mblnFlagEvent = False Then Exit Sub
+        RunCalcButtonHandler()
     End Sub
 
 End Class
