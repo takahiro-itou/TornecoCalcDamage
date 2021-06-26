@@ -1,13 +1,14 @@
 ﻿Public Class Damage
 
     ' ステータステーブル
-    Private mlngTableAttack() As Long       ' 基本攻撃力
-    Private mlngTableEnemyA() As Long       ' 敵の攻撃力
-    Private mlngTableEnemyD() As Long       ' 敵の守備力
+    Private mlngTableAttack() As Integer    ' 基本攻撃力
+    Private mlngTableEnemyA() As Integer    ' 敵の攻撃力
+    Private mlngTableEnemyD() As Integer    ' 敵の守備力
+    Private mstrEnemyName() As String       ' 敵の名前
 
     ' 与えるダメージ／受けるダメージ
-    Private mlngAtkDamage() As Long
-    Private mlngDefDamage() As Long
+    Private mlngAtkDamage(,) As Integer
+    Private mlngDefDamage(,) As Integer
 
     ' イベントチェーンの抑制フラグ
     Private mblnFlagEvent As Boolean
@@ -55,15 +56,36 @@
         ' 攻撃力を表示する
         lblAttack.Text = mlngTableAttack(nLevel) & "+" & lngAdjust & "=" & lngAttack
 
+        ' 各ダメージを計算し、テーブルに記録する
+        ReDim mlngAtkDamage(0 To 31, 0 To 32)
+        ReDim mlngDefDamage(0 To 31, 0 To 32)
+
+        For lngEnemy = 0 To 31
+            lngAtkTotal = 0
+            lngDefTotal = 0
+
+            For lngRand = 0 To 31
+                ' 敵を攻撃した時に与えるダメージ
+                lngDamage = CalcDamage(lngAttack, mlngTableEnemyD(lngEnemy), lngRand + 112)
+                mlngAtkDamage(lngEnemy, lngRand) = lngDamage
+                lngAtkTotal = lngAtkTotal + lngDamage
+
+                ' 敵から受けるダメージ
+                lngDamage = CalcDamage(mlngTableEnemyA(lngEnemy), nShield, lngRand + 112)
+                mlngDefDamage(lngEnemy, lngRand) = lngDamage
+                lngDefTotal = lngDefTotal + lngDamage
+            Next lngRand
+
+            mlngAtkDamage(lngEnemy, 32) = lngAtkTotal
+            mlngDefDamage(lngEnemy, 32) = lngDefTotal
+        Next lngEnemy
     End Sub
 
     '------------------------------------------------------------------------------
     ' 計算を行う
     '------------------------------------------------------------------------------
     Private Sub RunCalcButtonHandler()
-        Dim i As Integer
         Dim lngMode As Integer
-        Dim lngAttack As Integer
 
         If mblnFlagEvent = False Then Exit Sub
 
@@ -84,8 +106,34 @@
     '------------------------------------------------------------------------------
     ' データ順にソートする
     '------------------------------------------------------------------------------
-    Private Sub SortList(ByRef lpSortResult() As Long, ByRef lpData() As Long, _
-                         ByVal nStart As Long, ByVal nEnd As Long)
+    Private Sub SortList(ByRef lpSortResult() As Integer, ByRef lpData() As Integer, _
+                         ByVal nStart As Integer, ByVal nEnd As Integer)
+        Dim i As Integer, j As Integer
+        Dim blnUsed() As Boolean
+        Dim lngMinIndex As Integer
+        Dim lngMinValue As Integer
+
+        ReDim lpSortResult(nEnd)
+        ReDim blnUsed(nEnd)
+        For i = 0 To nEnd
+            blnUsed(i) = False
+        Next
+
+        For i = nStart To nEnd
+            lngMinValue = 99999999
+            lngMinIndex = -1
+            For j = nStart To nEnd
+                If (blnUsed(j) = False) Then
+                    If (lpData(j) < lngMinValue) Then
+                        lngMinIndex = j
+                        lngMinValue = lpData(j)
+                    End If
+                End If
+            Next j
+
+            lpSortResult(i) = lngMinIndex
+            blnUsed(lngMinIndex) = True
+        Next i
 
     End Sub
 
@@ -93,6 +141,105 @@
     ' ダメージのリストを表示する
     '------------------------------------------------------------------------------
     Private Sub UpdateDamageTable(ByVal nMode As Long, ByVal nEnemy As Long)
+        Dim X As Integer, Y As Integer
+        Dim lngSort() As Integer
+        Dim lngIndex As Integer
+
+        ReDim lngSort(0 To 31)
+
+        With grdDamage
+            .RowCount = 36
+            If (nMode = 2) Then
+                .ColumnCount = 3
+            Else
+                .ColumnCount = 33
+            End If
+            .Columns(0).HeaderText = "乱数"
+            .Columns(0).Width = 48
+            For Y = 0 To 32
+                .Rows(Y).Cells(0).Value = Y + 111
+            Next
+            .Rows(35).Cells(0).Value = "平均"
+
+            If (nMode = 0) Then
+                ' 敵を攻撃した時のダメージ
+                .Rows(33).Cells(0).Value = "守備力"
+
+                ' 守備力順にソートする
+                SortList(lngSort, mlngTableEnemyD, 0, 31)
+
+                ' 表示する
+                For X = 0 To 31
+                    lngIndex = lngSort(X)
+                    .Columns(X + 1).Width = 40
+                    .Columns(X + 1).HeaderText = mstrEnemyName(X)
+                    For Y = 0 To 31
+                        .Rows(Y).Cells(X + 1).Value = mlngAtkDamage(lngIndex, Y)
+                    Next Y
+                    .Rows(33).Cells(X + 1).Value = mlngTableEnemyD(lngIndex)
+                    .Rows(34).Cells(X + 1).Value = Format$( _
+                        mlngAtkDamage(lngIndex, 32) / 32, "#0.0")
+                    .Rows(32).Cells(X + 1).Value = ""
+                Next X
+
+            ElseIf (nMode = 1) Then
+                ' 敵の攻撃を受けた時のダメージ
+                .Rows(33).Cells(0).Value = "攻撃力"
+
+                ' 攻撃力順にソートする
+                SortList(lngSort, mlngTableEnemyA, 0, 31)
+
+                ' 表示する
+                For X = 0 To 31
+                    lngIndex = lngSort(X)
+                    .Columns(X + 1).Width = 40
+                    .Columns(X + 1).HeaderText = mstrEnemyName(lngIndex)
+                    For Y = 0 To 31
+                        .Rows(Y).Cells(X + 1).Value = mlngDefDamage(lngIndex, Y)
+                    Next Y
+                    .Rows(33).Cells(X + 1).Value = mlngTableEnemyA(lngIndex)
+                    .Rows(34).Cells(X + 1).Value = Format$( _
+                        mlngDefDamage(lngIndex, 32) / 32, "#0.0")
+                    .Rows(32).Cells(X + 1).Value = ""
+                Next X
+
+            ElseIf (nMode = 2) Then
+                ' 特定の敵との戦闘
+                With .Columns(1)
+                    .Width = 48
+                    .HeaderText = "敵への攻撃"
+                End With
+                With .Columns(2)
+                    .Width = 48
+                    .HeaderText = "敵からの攻撃"
+                End With
+                .Rows(33).Cells(0).Value = "攻／守"
+
+                For Y = 0 To 31
+                    With .Rows(Y)
+                        .Cells(1).Value = mlngAtkDamage(nEnemy, Y)
+                        .Cells(2).Value = mlngDefDamage(nEnemy, Y)
+                    End With
+                Next Y
+
+                With .Rows(32)
+                    .Cells(0).Value = ""
+                    .Cells(1).Value = ""
+                    .Cells(2).Value = ""
+                End With
+                With .Rows(33)
+                    .Cells(0).Value = "攻／守"
+                    .Cells(1).Value = mlngTableEnemyA(nEnemy)
+                    .Cells(2).Value = mlngTableEnemyD(nEnemy)
+                End With
+                With .Rows(34)
+                    .Cells(0).Value = "平均"
+                    .Cells(1).Value = Format$(mlngAtkDamage(nEnemy, 32) / 32, "#0.0##")
+                    .Cells(2).Value = Format$(mlngDefDamage(nEnemy, 32) / 32, "#0.0##")
+                End With
+            End If
+
+        End With
 
     End Sub
 
@@ -129,41 +276,46 @@
         Next i
 
         ' 敵の名前
+        ReDim mstrEnemyName(0 To 31)
+        mstrEnemyName(0) = ("スライム")
+        mstrEnemyName(1) = ("ゴースト")
+        mstrEnemyName(2) = ("ドラキー")
+        mstrEnemyName(3) = ("おおなめくじ")
+        mstrEnemyName(4) = ("ももんじゃ")
+        mstrEnemyName(5) = ("リリパット")
+        mstrEnemyName(6) = ("おばけキノコ")
+        mstrEnemyName(7) = ("スモールグール")
+        mstrEnemyName(8) = ("わらいぶくろ")
+        mstrEnemyName(9) = ("イエティ")
+        mstrEnemyName(10) = ("まどうし")
+        mstrEnemyName(11) = ("ミイラおとこ")
+        mstrEnemyName(12) = ("きめんどうし")
+        mstrEnemyName(13) = ("ベビーサタン")
+        mstrEnemyName(14) = ("マネマネ")
+        mstrEnemyName(15) = ("キメラ")
+        mstrEnemyName(16) = ("くさったしたい")
+        mstrEnemyName(17) = ("ミミック")
+        mstrEnemyName(18) = ("ばくだんいわ")
+        mstrEnemyName(19) = ("どろにんぎょう")
+        mstrEnemyName(20) = ("さまようよろい")
+        mstrEnemyName(21) = ("マドハンド")
+        mstrEnemyName(22) = ("うごくせきぞう")
+        mstrEnemyName(23) = ("シャドー")
+        mstrEnemyName(24) = ("ミステリードール")
+        mstrEnemyName(25) = ("ゴーレム")
+        mstrEnemyName(26) = ("おおめだま")
+        mstrEnemyName(27) = ("ギガンテス")
+        mstrEnemyName(28) = ("はぐれメタル")
+        mstrEnemyName(29) = ("シルバーデビル")
+        mstrEnemyName(30) = ("アークデーモン")
+        mstrEnemyName(31) = ("ドラゴン")
+
         With cmbEnemy
             With .Items
                 .Clear()
-                .Add("スライム")
-                .Add("ゴースト")
-                .Add("ドラキー")
-                .Add("おおなめくじ")
-                .Add("ももんじゃ")
-                .Add("リリパット")
-                .Add("おばけキノコ")
-                .Add("スモールグール")
-                .Add("わらいぶくろ")
-                .Add("イエティ")
-                .Add("まどうし")
-                .Add("ミイラおとこ")
-                .Add("きめんどうし")
-                .Add("ベビーサタン")
-                .Add("マネマネ")
-                .Add("キメラ")
-                .Add("くさったしたい")
-                .Add("ミミック")
-                .Add("ばくだんいわ")
-                .Add("どろにんぎょう")
-                .Add("さまようよろい")
-                .Add("マドハンド")
-                .Add("うごくせきぞう")
-                .Add("シャドー")
-                .Add("ミステリードール")
-                .Add("ゴーレム")
-                .Add("おおめだま")
-                .Add("ギガンテス")
-                .Add("はぐれメタル")
-                .Add("シルバーデビル")
-                .Add("アークデーモン")
-                .Add("ドラゴン")
+                For i = 0 To 31
+                    .Add(mstrEnemyName(i))
+                Next i
             End With
 
             .SelectedIndex = 0
