@@ -1,5 +1,12 @@
 ﻿Public Class Damage
 
+    ' データのソート順序
+    Enum SortOrder
+        SORT_ORDER_NONE = 0                 ' ソートなし
+        SORT_ORDER_DESCENDING = 1           ' 降順
+        SORT_ORDER_ASCENDING = 2            ' 昇順
+    End Enum
+
     ' ステータステーブル
     Private mlngTableAttack() As Integer    ' 基本攻撃力
     Private mlngTableEnemyA() As Integer    ' 敵の攻撃力
@@ -9,6 +16,10 @@
     ' 与えるダメージ／受けるダメージ
     Private mlngAtkDamage(,) As Integer
     Private mlngDefDamage(,) As Integer
+
+    ' 行の表示順序
+    Private mRowSortOrder As SortOrder
+    Private mColSortOrder As SortOrder
 
     ' イベントチェーンの抑制フラグ
     Private mblnFlagEvent As Boolean
@@ -122,7 +133,7 @@
         ElseIf optMode2.Checked = True Then
             lngMode = 2
         End If
-        UpdateDamageTable(lngMode, cmbEnemy.SelectedIndex)
+        UpdateDamageTable(lngMode, cmbEnemy.SelectedIndex, mColSortOrder, mRowSortOrder)
     End Sub
 
     '------------------------------------------------------------------------------
@@ -130,15 +141,18 @@
     '------------------------------------------------------------------------------
     Private Sub ShowEnemyDamageTableData(ByRef lpData(,) As Integer, _
                               ByRef lpStatus() As Integer, _
-                              ByVal strStatus As String)
+                              ByVal strStatus As String, _
+                              ByVal eColSortOrder As SortOrder, _
+                              ByVal eRowSortOrder As SortOrder)
         Dim X As Integer, Y As Integer
+        Dim lngRand As Integer
         Dim lngSort() As Integer
         Dim lngIndex As Integer
         Dim lngSumValue As Integer
 
         ' 敵側のステータス順にソートする
         ReDim lngSort(0 To 31)
-        SortList(lngSort, lpStatus, 0, NUM_MONSTERS - 1)
+        SortList(lngSort, lpStatus, 0, NUM_MONSTERS - 1, eColSortOrder)
 
         With grdDamage
             With .Rows(GRID_EXTRA_ROW_STATUS)
@@ -151,9 +165,14 @@
                 .Columns(X + 1).Width = 40
                 .Columns(X + 1).HeaderText = mstrEnemyName(lngIndex)
 
-                For Y = 0 To NUM_RAND_RANGES - 1
-                    .Rows(Y + NUM_HEADER_ROWS).Cells(X + 1).Value = lpData(lngIndex, Y)
-                Next Y
+                For lngRand = 0 To NUM_RAND_RANGES - 1
+                    If (eRowSortOrder = SortOrder.SORT_ORDER_DESCENDING) Then
+                        Y = NUM_RAND_RANGES - 1 - lngRand
+                    Else
+                        Y = lngRand
+                    End If
+                    .Rows(Y + NUM_HEADER_ROWS).Cells(X + 1).Value = lpData(lngIndex, lngRand)
+                Next lngRand
 
                 With .Rows(GRID_EXTRA_ROW_STATUS)
                     .Cells(X + 1).Value = lpStatus(lngIndex)
@@ -182,13 +201,23 @@
     ' データ順にソートする
     '------------------------------------------------------------------------------
     Private Sub SortList(ByRef lpSortResult() As Integer, ByRef lpData() As Integer, _
-                         ByVal nStart As Integer, ByVal nEnd As Integer)
+                         ByVal nStart As Integer, ByVal nEnd As Integer, _
+                         ByVal eSortOrder As SortOrder)
         Dim i As Integer, j As Integer
         Dim blnUsed() As Boolean
+        Dim lngCurValue As Integer
         Dim lngMinIndex As Integer
         Dim lngMinValue As Integer
 
         ReDim lpSortResult(nEnd)
+
+        If (eSortOrder = SortOrder.SORT_ORDER_NONE) Then
+            For i = nStart To nEnd
+                lpSortResult(i) = i
+            Next
+            Exit Sub
+        End If
+
         ReDim blnUsed(nEnd)
         For i = 0 To nEnd
             blnUsed(i) = False
@@ -198,11 +227,19 @@
             lngMinValue = 99999999
             lngMinIndex = -1
             For j = nStart To nEnd
-                If (blnUsed(j) = False) Then
-                    If (lpData(j) < lngMinValue) Then
-                        lngMinIndex = j
-                        lngMinValue = lpData(j)
-                    End If
+                If (blnUsed(j) = True) Then
+                    Continue For
+                End If
+
+                If (eSortOrder = SortOrder.SORT_ORDER_DESCENDING) Then
+                    lngCurValue = -lpData(j)
+                Else
+                    lngCurValue = lpData(j)
+                End If
+
+                If (lngCurValue < lngMinValue) Then
+                    lngMinIndex = j
+                    lngMinValue = lngCurValue
                 End If
             Next j
 
@@ -215,7 +252,10 @@
     '------------------------------------------------------------------------------
     ' ダメージのリストを表示する
     '------------------------------------------------------------------------------
-    Private Sub UpdateDamageTable(ByVal nMode As Long, ByVal nEnemy As Long)
+    Private Sub UpdateDamageTable(ByVal nMode As Long, ByVal nEnemy As Long, _
+                                  ByVal eColSortOrder As SortOrder, _
+                                  ByVal eRowSortOrder As SortOrder)
+        Dim lngRand As Integer
         Dim Y As Integer
         Dim lngSumValue As Integer
 
@@ -235,14 +275,20 @@
                 .Frozen = True
             End With
 
-            For Y = 0 To NUM_RAND_RANGES - 1
+            For lngRand = 0 To NUM_RAND_RANGES - 1
+                If (eRowSortOrder = SortOrder.SORT_ORDER_DESCENDING) Then
+                    Y = NUM_RAND_RANGES - 1 - lngRand
+                Else
+                    Y = lngRand
+                End If
                 With .Rows(Y + NUM_HEADER_ROWS)
                     With .Cells(GRID_HEADER_COL_RAND)
-                        .Value = Y + RAND_RANGE_MIN
+                        .Value = lngRand + RAND_RANGE_MIN
                         .Style.BackColor = Color.LightGray
                     End With
                 End With
-            Next Y
+            Next lngRand
+
             With .Rows(GRID_EXTRA_ROW_MAX)
                 With .Cells(GRID_HEADER_COL_RAND)
                     .Value = "最大"
@@ -265,11 +311,13 @@
 
         If (nMode = 0) Then
             ' 敵を攻撃した時のダメージ
-            ShowEnemyDamageTableData(mlngAtkDamage, mlngTableEnemyD, "守備力")
+            ShowEnemyDamageTableData(mlngAtkDamage, mlngTableEnemyD, "守備力", _
+                                     eColSortOrder, eRowSortOrder)
             Exit Sub
         ElseIf (nMode = 1) Then
             ' 敵の攻撃を受けた時のダメージ
-            ShowEnemyDamageTableData(mlngDefDamage, mlngTableEnemyA, "攻撃力")
+            ShowEnemyDamageTableData(mlngDefDamage, mlngTableEnemyA, "攻撃力", _
+                                     eColSortOrder, eRowSortOrder)
             Exit Sub
         End If
 
@@ -284,12 +332,17 @@
                 .HeaderText = "敵からの攻撃"
             End With
 
-            For Y = 0 To NUM_RAND_RANGES - 1
+            For lngRand = 0 To NUM_RAND_RANGES - 1
+                If (eRowSortOrder = SortOrder.SORT_ORDER_DESCENDING) Then
+                    Y = NUM_RAND_RANGES - 1 - lngRand
+                Else
+                    Y = lngRand
+                End If
                 With .Rows(Y + NUM_HEADER_ROWS)
                     .Cells(GRID_COL_ATK).Value = mlngAtkDamage(nEnemy, Y)
                     .Cells(GRID_COL_DEF).Value = mlngDefDamage(nEnemy, Y)
                 End With
-            Next Y
+            Next lngRand
 
             With .Rows(GRID_EXTRA_ROW_STATUS)
                 .Cells(GRID_HEADER_COL_RAND).Value = "守／攻"
