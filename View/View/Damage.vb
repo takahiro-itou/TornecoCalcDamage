@@ -394,6 +394,9 @@
         ' 初期化中のイベントの処理を無効化しておく
         mblnFlagEvent = False
 
+        mColSortOrder = SortOrder.SORT_ORDER_ASCENDING
+        mRowSortOrder = SortOrder.SORT_ORDER_DESCENDING
+
         ' 基本攻撃力
         ReDim mlngTableAttack(37)
         strData = "  5,  7,  9, 11, 13, 16, 19, 22, 25, 29, 33, 37, 41, 46, 51, 56, 61, 65, 71," & _
