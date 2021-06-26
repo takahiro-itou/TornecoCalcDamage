@@ -37,7 +37,9 @@
     Private Const GRID_EXTRA_ROW_MAX As Integer = 1
     Private Const GRID_EXTRA_ROW_MIN As Integer = 2
     Private Const GRID_EXTRA_ROW_AVERAGE As Integer = 3
-    Private Const NUM_HEADER_ROWS As Integer = 4
+    Private Const GRID_EXTRA_ROW_HP As Integer = 4
+
+    Private Const NUM_HEADER_ROWS As Integer = 5
 
     Private Const NUM_RAND_RANGES As Integer = 32
     Private Const TABLE_EXTRA_INDEX_SUM As Integer = NUM_RAND_RANGES
@@ -217,7 +219,10 @@
 
         With grdDamage
             With .Rows(GRID_EXTRA_ROW_STATUS)
-                .Cells(GRID_EXTRA_ROW_STATUS).Value = strStatus
+                With .Cells(GRID_EXTRA_ROW_STATUS)
+                    .Value = strStatus
+                    .Style.BackColor = Color.LightGray
+                End With
             End With
 
             ' 表示する
@@ -253,6 +258,11 @@
                             lngSumValue / NUM_RAND_RANGES, "#0.0")
                     .Cells(X + 1).Style.BackColor = Color.LightYellow
                 End With
+                With .Rows(GRID_EXTRA_ROW_HP)
+                    .Cells(X + 1).Value = mlngTableEnemyHP(lngIndex)
+                    .Cells(X + 1).Style.BackColor = Color.LightGray
+                End With
+
             Next X
         End With
 
@@ -368,6 +378,12 @@
                     .Style.BackColor = Color.LightGray
                 End With
             End With
+            With .Rows(GRID_EXTRA_ROW_HP)
+                With .Cells(GRID_HEADER_COL_RAND)
+                    .Value = "HP"
+                    .Style.BackColor = Color.LightGray
+                End With
+            End With
         End With
 
         If (nMode = 0) Then
@@ -426,6 +442,11 @@
                 .Cells(GRID_COL_ATK).Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
                 lngSumValue = mlngDefDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
                 .Cells(GRID_COL_DEF).Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
+            End With
+            With .Rows(GRID_EXTRA_ROW_HP)
+                .Cells(GRID_HEADER_COL_RAND).Value = "HP"
+                .Cells(GRID_COL_ATK).Value = mlngTableEnemyHP(nEnemy)
+                .Cells(GRID_COL_DEF).Value = ""
             End With
         End With
 
