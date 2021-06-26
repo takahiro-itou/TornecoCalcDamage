@@ -41,6 +41,11 @@ Partial Class Damage
         Me.optMode2 = New System.Windows.Forms.RadioButton()
         Me.optMode1 = New System.Windows.Forms.RadioButton()
         Me.optMode0 = New System.Windows.Forms.RadioButton()
+        Me.fraSort = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cmbRowSort = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cmbColSort = New System.Windows.Forms.ComboBox()
         CType(Me.grdDamage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.fraStatus.SuspendLayout()
         CType(Me.updShield, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,13 +53,14 @@ Partial Class Damage
         CType(Me.updPower, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.updLevel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.fraMode.SuspendLayout()
+        Me.fraSort.SuspendLayout()
         Me.SuspendLayout()
         '
         'cmdOK
         '
-        Me.cmdOK.Location = New System.Drawing.Point(840, 10)
+        Me.cmdOK.Location = New System.Drawing.Point(842, 16)
         Me.cmdOK.Name = "cmdOK"
-        Me.cmdOK.Size = New System.Drawing.Size(81, 33)
+        Me.cmdOK.Size = New System.Drawing.Size(80, 32)
         Me.cmdOK.TabIndex = 0
         Me.cmdOK.Text = "計算(&C)"
         Me.cmdOK.UseVisualStyleBackColor = True
@@ -62,9 +68,9 @@ Partial Class Damage
         'cmdExit
         '
         Me.cmdExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.cmdExit.Location = New System.Drawing.Point(840, 56)
+        Me.cmdExit.Location = New System.Drawing.Point(842, 64)
         Me.cmdExit.Name = "cmdExit"
-        Me.cmdExit.Size = New System.Drawing.Size(81, 33)
+        Me.cmdExit.Size = New System.Drawing.Size(80, 32)
         Me.cmdExit.TabIndex = 1
         Me.cmdExit.Text = "終了(&X)"
         Me.cmdExit.UseVisualStyleBackColor = True
@@ -76,7 +82,7 @@ Partial Class Damage
         Me.grdDamage.Location = New System.Drawing.Point(8, 128)
         Me.grdDamage.Name = "grdDamage"
         Me.grdDamage.RowTemplate.Height = 21
-        Me.grdDamage.Size = New System.Drawing.Size(913, 569)
+        Me.grdDamage.Size = New System.Drawing.Size(914, 568)
         Me.grdDamage.TabIndex = 2
         '
         'fraStatus
@@ -93,7 +99,7 @@ Partial Class Damage
         Me.fraStatus.Controls.Add(Me.Label1)
         Me.fraStatus.Location = New System.Drawing.Point(8, 0)
         Me.fraStatus.Name = "fraStatus"
-        Me.fraStatus.Size = New System.Drawing.Size(457, 121)
+        Me.fraStatus.Size = New System.Drawing.Size(457, 120)
         Me.fraStatus.TabIndex = 3
         Me.fraStatus.TabStop = False
         Me.fraStatus.Text = "トルネコのステータス"
@@ -206,7 +212,7 @@ Partial Class Damage
         Me.fraMode.Controls.Add(Me.optMode0)
         Me.fraMode.Location = New System.Drawing.Point(480, 0)
         Me.fraMode.Name = "fraMode"
-        Me.fraMode.Size = New System.Drawing.Size(233, 121)
+        Me.fraMode.Size = New System.Drawing.Size(233, 120)
         Me.fraMode.TabIndex = 14
         Me.fraMode.TabStop = False
         Me.fraMode.Text = "表示する内容"
@@ -253,13 +259,65 @@ Partial Class Damage
         Me.optMode0.Text = "敵を攻撃した時のダメージ"
         Me.optMode0.UseVisualStyleBackColor = False
         '
+        'fraSort
+        '
+        Me.fraSort.Controls.Add(Me.cmbColSort)
+        Me.fraSort.Controls.Add(Me.Label7)
+        Me.fraSort.Controls.Add(Me.cmbRowSort)
+        Me.fraSort.Controls.Add(Me.Label6)
+        Me.fraSort.Location = New System.Drawing.Point(722, 0)
+        Me.fraSort.Name = "fraSort"
+        Me.fraSort.Size = New System.Drawing.Size(112, 120)
+        Me.fraSort.TabIndex = 15
+        Me.fraSort.TabStop = False
+        Me.fraSort.Text = "ソート"
+        '
+        'Label6
+        '
+        Me.Label6.Location = New System.Drawing.Point(8, 16)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(96, 16)
+        Me.Label6.TabIndex = 9
+        Me.Label6.Text = "行のソート"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'cmbRowSort
+        '
+        Me.cmbRowSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbRowSort.FormattingEnabled = True
+        Me.cmbRowSort.Items.AddRange(New Object() {"降順", "昇順"})
+        Me.cmbRowSort.Location = New System.Drawing.Point(8, 40)
+        Me.cmbRowSort.Name = "cmbRowSort"
+        Me.cmbRowSort.Size = New System.Drawing.Size(96, 20)
+        Me.cmbRowSort.TabIndex = 19
+        '
+        'Label7
+        '
+        Me.Label7.Location = New System.Drawing.Point(8, 64)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(96, 16)
+        Me.Label7.TabIndex = 20
+        Me.Label7.Text = "モンスターのソート"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'cmbColSort
+        '
+        Me.cmbColSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbColSort.FormattingEnabled = True
+        Me.cmbColSort.Items.AddRange(New Object() {"なし", "降順", "昇順"})
+        Me.cmbColSort.Location = New System.Drawing.Point(8, 88)
+        Me.cmbColSort.Name = "cmbColSort"
+        Me.cmbColSort.Size = New System.Drawing.Size(96, 20)
+        Me.cmbColSort.TabIndex = 21
+        '
         'Damage
         '
         Me.AcceptButton = Me.cmdOK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.cmdExit
-        Me.ClientSize = New System.Drawing.Size(929, 709)
+        Me.ClientSize = New System.Drawing.Size(930, 709)
+        Me.Controls.Add(Me.fraSort)
         Me.Controls.Add(Me.fraMode)
         Me.Controls.Add(Me.fraStatus)
         Me.Controls.Add(Me.grdDamage)
@@ -277,6 +335,7 @@ Partial Class Damage
         CType(Me.updPower, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.updLevel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.fraMode.ResumeLayout(False)
+        Me.fraSort.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -299,5 +358,10 @@ Partial Class Damage
     Friend WithEvents optMode0 As System.Windows.Forms.RadioButton
     Friend WithEvents optMode2 As System.Windows.Forms.RadioButton
     Friend WithEvents cmbEnemy As System.Windows.Forms.ComboBox
+    Friend WithEvents fraSort As System.Windows.Forms.GroupBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents cmbRowSort As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbColSort As System.Windows.Forms.ComboBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
 
 End Class

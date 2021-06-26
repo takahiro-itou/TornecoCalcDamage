@@ -122,6 +122,16 @@
 
         If mblnFlagEvent = False Then Exit Sub
 
+        ' ソート順序を決定する
+        Select Case (cmbRowSort.SelectedIndex)
+            Case 1
+                mRowSortOrder = SortOrder.SORT_ORDER_ASCENDING
+            Case Else
+                mRowSortOrder = SortOrder.SORT_ORDER_DESCENDING
+        End Select
+
+        mColSortOrder = cmbColSort.SelectedIndex
+
         ' ダメージテーブルを計算する
         CalcDamageTable(updLevel.Value, updPower.Value, updWeapon.Value, updShield.Value)
 
@@ -397,6 +407,13 @@
         mColSortOrder = SortOrder.SORT_ORDER_ASCENDING
         mRowSortOrder = SortOrder.SORT_ORDER_DESCENDING
 
+        With cmbColSort
+            .SelectedIndex = mColSortOrder
+        End With
+        With cmbRowSort
+            .SelectedIndex = mRowSortOrder - 1
+        End With
+
         ' 基本攻撃力
         ReDim mlngTableAttack(37)
         strData = "  5,  7,  9, 11, 13, 16, 19, 22, 25, 29, 33, 37, 41, 46, 51, 56, 61, 65, 71," & _
@@ -518,6 +535,12 @@
     End Sub
 
     Private Sub cmbEnemy_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbEnemy.SelectedIndexChanged
+        If mblnFlagEvent = False Then Exit Sub
+        RunCalcButtonHandler()
+    End Sub
+
+    Private Sub cmbSort_SelectedIndexChanged(sender As Object, e As EventArgs) _
+            Handles cmbColSort.SelectedIndexChanged, cmbRowSort.SelectedIndexChanged
         If mblnFlagEvent = False Then Exit Sub
         RunCalcButtonHandler()
     End Sub
