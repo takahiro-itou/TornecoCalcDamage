@@ -319,6 +319,7 @@
             End With
 
             .SelectedIndex = 0
+            .Enabled = False
         End With
 
         ' 敵の攻撃力
@@ -367,4 +368,12 @@
         RunCalcButtonHandler()
     End Sub
 
+    Private Sub optMode_CheckedChanged(sender As Object, e As EventArgs) _
+            Handles optMode0.CheckedChanged, optMode1.CheckedChanged, optMode2.CheckedChanged
+
+        If mblnFlagEvent = False Then Exit Sub
+
+        cmbEnemy.Enabled = optMode2.Checked
+        RunCalcButtonHandler()
+    End Sub
 End Class
