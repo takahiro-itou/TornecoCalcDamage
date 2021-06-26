@@ -15,6 +15,9 @@
 
     ' 定数
     Private Const GRID_HEADER_COL_RAND As Integer = 0
+    Private Const GRID_COL_ATK As Integer = 1
+    Private Const GRID_COL_DEF As Integer = 2
+
     Private Const NUM_FIXED_COLUMNS As Integer = 1
     Private Const NUM_MONSTERS As Integer = 32
 
@@ -272,34 +275,43 @@
 
         With grdDamage
             ' 特定の敵との戦闘
-            With .Columns(1)
+            With .Columns(GRID_COL_ATK)
                 .Width = 48
                 .HeaderText = "敵への攻撃"
             End With
-            With .Columns(2)
+            With .Columns(GRID_COL_DEF)
                 .Width = 48
                 .HeaderText = "敵からの攻撃"
             End With
-            .Rows(33).Cells(0).Value = "攻／守"
 
             For Y = 0 To NUM_RAND_RANGES - 1
                 With .Rows(Y + NUM_HEADER_ROWS)
-                    .Cells(1).Value = mlngAtkDamage(nEnemy, Y)
-                    .Cells(2).Value = mlngDefDamage(nEnemy, Y)
+                    .Cells(GRID_COL_ATK).Value = mlngAtkDamage(nEnemy, Y)
+                    .Cells(GRID_COL_DEF).Value = mlngDefDamage(nEnemy, Y)
                 End With
             Next Y
 
             With .Rows(GRID_EXTRA_ROW_STATUS)
-                .Cells(0).Value = "攻／守"
-                .Cells(1).Value = mlngTableEnemyA(nEnemy)
-                .Cells(2).Value = mlngTableEnemyD(nEnemy)
+                .Cells(GRID_HEADER_COL_RAND).Value = "守／攻"
+                .Cells(GRID_COL_ATK).Value = mlngTableEnemyD(nEnemy)
+                .Cells(GRID_COL_DEF).Value = mlngTableEnemyA(nEnemy)
+            End With
+            With .Rows(GRID_EXTRA_ROW_MAX)
+                .Cells(GRID_HEADER_COL_RAND).Value = "最大"
+                .Cells(GRID_COL_ATK).Value = mlngAtkDamage(nEnemy, NUM_RAND_RANGES - 1)
+                .Cells(GRID_COL_DEF).Value = mlngAtkDamage(nEnemy, NUM_RAND_RANGES - 1)
+            End With
+            With .Rows(GRID_EXTRA_ROW_MIN)
+                .Cells(GRID_HEADER_COL_RAND).Value = "最小"
+                .Cells(GRID_COL_ATK).Value = mlngAtkDamage(nEnemy, 0)
+                .Cells(GRID_COL_DEF).Value = mlngAtkDamage(nEnemy, 0)
             End With
             With .Rows(GRID_EXTRA_ROW_AVERAGE)
-                .Cells(0).Value = "平均"
+                .Cells(GRID_HEADER_COL_RAND).Value = "平均"
                 lngSumValue = mlngAtkDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
-                .Cells(1).Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
+                .Cells(GRID_COL_ATK).Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
                 lngSumValue = mlngDefDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
-                .Cells(2).Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
+                .Cells(GRID_COL_DEF).Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
             End With
         End With
 
@@ -449,4 +461,8 @@
         RunCalcButtonHandler()
     End Sub
 
+    Private Sub cmbEnemy_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbEnemy.SelectedIndexChanged
+        If mblnFlagEvent = False Then Exit Sub
+        RunCalcButtonHandler()
+    End Sub
 End Class
