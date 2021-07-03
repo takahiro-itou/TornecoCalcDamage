@@ -42,19 +42,19 @@ Partial Class Damage
         Me.optMode1 = New System.Windows.Forms.RadioButton()
         Me.optMode0 = New System.Windows.Forms.RadioButton()
         Me.fraSort = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.cmbRowSort = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.cmbColSort = New System.Windows.Forms.ComboBox()
-        CType(Me.grdDamage, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.fraStatus.SuspendLayout()
-        CType(Me.updShield, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.updWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.updPower, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.updLevel, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.fraMode.SuspendLayout()
-        Me.fraSort.SuspendLayout()
-        Me.SuspendLayout()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cmbRowSort = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        CType(Me.grdDamage,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.fraStatus.SuspendLayout
+        CType(Me.updShield,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.updWeapon,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.updPower,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.updLevel,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.fraMode.SuspendLayout
+        Me.fraSort.SuspendLayout
+        Me.SuspendLayout
         '
         'cmdOK
         '
@@ -63,7 +63,7 @@ Partial Class Damage
         Me.cmdOK.Size = New System.Drawing.Size(80, 32)
         Me.cmdOK.TabIndex = 0
         Me.cmdOK.Text = "計算(&C)"
-        Me.cmdOK.UseVisualStyleBackColor = True
+        Me.cmdOK.UseVisualStyleBackColor = true
         '
         'cmdExit
         '
@@ -73,14 +73,20 @@ Partial Class Damage
         Me.cmdExit.Size = New System.Drawing.Size(80, 32)
         Me.cmdExit.TabIndex = 1
         Me.cmdExit.Text = "終了(&X)"
-        Me.cmdExit.UseVisualStyleBackColor = True
+        Me.cmdExit.UseVisualStyleBackColor = true
         '
         'grdDamage
         '
+        Me.grdDamage.AllowUserToAddRows = false
+        Me.grdDamage.AllowUserToDeleteRows = false
+        Me.grdDamage.AllowUserToResizeColumns = False
+        Me.grdDamage.AllowUserToResizeRows = False
         Me.grdDamage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.grdDamage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdDamage.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.grdDamage.Location = New System.Drawing.Point(8, 128)
         Me.grdDamage.Name = "grdDamage"
+        Me.grdDamage.ReadOnly = true
         Me.grdDamage.RowTemplate.Height = 21
         Me.grdDamage.Size = New System.Drawing.Size(914, 568)
         Me.grdDamage.TabIndex = 2
@@ -101,7 +107,7 @@ Partial Class Damage
         Me.fraStatus.Name = "fraStatus"
         Me.fraStatus.Size = New System.Drawing.Size(457, 120)
         Me.fraStatus.TabIndex = 3
-        Me.fraStatus.TabStop = False
+        Me.fraStatus.TabStop = false
         Me.fraStatus.Text = "トルネコのステータス"
         '
         'lblAttack
@@ -214,13 +220,13 @@ Partial Class Damage
         Me.fraMode.Name = "fraMode"
         Me.fraMode.Size = New System.Drawing.Size(233, 120)
         Me.fraMode.TabIndex = 14
-        Me.fraMode.TabStop = False
+        Me.fraMode.TabStop = false
         Me.fraMode.Text = "表示する内容"
         '
         'cmbEnemy
         '
         Me.cmbEnemy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbEnemy.FormattingEnabled = True
+        Me.cmbEnemy.FormattingEnabled = true
         Me.cmbEnemy.Location = New System.Drawing.Point(8, 88)
         Me.cmbEnemy.Name = "cmbEnemy"
         Me.cmbEnemy.Size = New System.Drawing.Size(217, 20)
@@ -233,9 +239,9 @@ Partial Class Damage
         Me.optMode2.Name = "optMode2"
         Me.optMode2.Size = New System.Drawing.Size(217, 17)
         Me.optMode2.TabIndex = 17
-        Me.optMode2.TabStop = True
+        Me.optMode2.TabStop = true
         Me.optMode2.Text = "特定の敵との戦闘"
-        Me.optMode2.UseVisualStyleBackColor = False
+        Me.optMode2.UseVisualStyleBackColor = false
         '
         'optMode1
         '
@@ -244,9 +250,9 @@ Partial Class Damage
         Me.optMode1.Name = "optMode1"
         Me.optMode1.Size = New System.Drawing.Size(217, 17)
         Me.optMode1.TabIndex = 16
-        Me.optMode1.TabStop = True
+        Me.optMode1.TabStop = true
         Me.optMode1.Text = "敵から受けるダメージ"
-        Me.optMode1.UseVisualStyleBackColor = False
+        Me.optMode1.UseVisualStyleBackColor = false
         '
         'optMode0
         '
@@ -255,9 +261,9 @@ Partial Class Damage
         Me.optMode0.Name = "optMode0"
         Me.optMode0.Size = New System.Drawing.Size(217, 17)
         Me.optMode0.TabIndex = 15
-        Me.optMode0.TabStop = True
+        Me.optMode0.TabStop = true
         Me.optMode0.Text = "敵を攻撃した時のダメージ"
-        Me.optMode0.UseVisualStyleBackColor = False
+        Me.optMode0.UseVisualStyleBackColor = false
         '
         'fraSort
         '
@@ -269,27 +275,18 @@ Partial Class Damage
         Me.fraSort.Name = "fraSort"
         Me.fraSort.Size = New System.Drawing.Size(112, 120)
         Me.fraSort.TabIndex = 15
-        Me.fraSort.TabStop = False
+        Me.fraSort.TabStop = false
         Me.fraSort.Text = "ソート"
         '
-        'Label6
+        'cmbColSort
         '
-        Me.Label6.Location = New System.Drawing.Point(8, 16)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(96, 16)
-        Me.Label6.TabIndex = 9
-        Me.Label6.Text = "行のソート"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'cmbRowSort
-        '
-        Me.cmbRowSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbRowSort.FormattingEnabled = True
-        Me.cmbRowSort.Items.AddRange(New Object() {"降順", "昇順"})
-        Me.cmbRowSort.Location = New System.Drawing.Point(8, 40)
-        Me.cmbRowSort.Name = "cmbRowSort"
-        Me.cmbRowSort.Size = New System.Drawing.Size(96, 20)
-        Me.cmbRowSort.TabIndex = 19
+        Me.cmbColSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbColSort.FormattingEnabled = true
+        Me.cmbColSort.Items.AddRange(New Object() {"なし", "降順", "昇順"})
+        Me.cmbColSort.Location = New System.Drawing.Point(8, 88)
+        Me.cmbColSort.Name = "cmbColSort"
+        Me.cmbColSort.Size = New System.Drawing.Size(96, 20)
+        Me.cmbColSort.TabIndex = 21
         '
         'Label7
         '
@@ -300,20 +297,29 @@ Partial Class Damage
         Me.Label7.Text = "モンスターのソート"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'cmbColSort
+        'cmbRowSort
         '
-        Me.cmbColSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbColSort.FormattingEnabled = True
-        Me.cmbColSort.Items.AddRange(New Object() {"なし", "降順", "昇順"})
-        Me.cmbColSort.Location = New System.Drawing.Point(8, 88)
-        Me.cmbColSort.Name = "cmbColSort"
-        Me.cmbColSort.Size = New System.Drawing.Size(96, 20)
-        Me.cmbColSort.TabIndex = 21
+        Me.cmbRowSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbRowSort.FormattingEnabled = true
+        Me.cmbRowSort.Items.AddRange(New Object() {"降順", "昇順"})
+        Me.cmbRowSort.Location = New System.Drawing.Point(8, 40)
+        Me.cmbRowSort.Name = "cmbRowSort"
+        Me.cmbRowSort.Size = New System.Drawing.Size(96, 20)
+        Me.cmbRowSort.TabIndex = 19
+        '
+        'Label6
+        '
+        Me.Label6.Location = New System.Drawing.Point(8, 16)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(96, 16)
+        Me.Label6.TabIndex = 9
+        Me.Label6.Text = "行のソート"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
         'Damage
         '
         Me.AcceptButton = Me.cmdOK
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 12!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.cmdExit
         Me.ClientSize = New System.Drawing.Size(930, 709)
@@ -328,15 +334,15 @@ Partial Class Damage
         Me.Name = "Damage"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "トルネコの大冒険　戦闘ダメージ計算"
-        CType(Me.grdDamage, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.fraStatus.ResumeLayout(False)
-        CType(Me.updShield, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.updWeapon, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.updPower, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.updLevel, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.fraMode.ResumeLayout(False)
-        Me.fraSort.ResumeLayout(False)
-        Me.ResumeLayout(False)
+        CType(Me.grdDamage,System.ComponentModel.ISupportInitialize).EndInit
+        Me.fraStatus.ResumeLayout(false)
+        CType(Me.updShield,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.updWeapon,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.updPower,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.updLevel,System.ComponentModel.ISupportInitialize).EndInit
+        Me.fraMode.ResumeLayout(false)
+        Me.fraSort.ResumeLayout(false)
+        Me.ResumeLayout(false)
 
     End Sub
     Friend WithEvents cmdOK As System.Windows.Forms.Button

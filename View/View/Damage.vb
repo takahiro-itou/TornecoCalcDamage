@@ -228,8 +228,11 @@
             ' 表示する
             For X = 0 To NUM_MONSTERS - 1
                 lngIndex = lngSort(X)
-                .Columns(X + 1).Width = 40
-                .Columns(X + 1).HeaderText = mstrEnemyName(lngIndex)
+                With .Columns(X + 1)
+                    .HeaderText = mstrEnemyName(lngIndex)
+                    .SortMode = DataGridViewColumnSortMode.NotSortable
+                    .Width = 40
+                End With
 
                 For lngRand = 0 To NUM_RAND_RANGES - 1
                     If (eRowSortOrder = SortOrder.SORT_ORDER_DESCENDING) Then
@@ -237,7 +240,12 @@
                     Else
                         Y = lngRand
                     End If
-                    .Rows(Y + NUM_HEADER_ROWS).Cells(X + 1).Value = lpData(lngIndex, lngRand)
+                    With .Rows(Y + NUM_HEADER_ROWS)
+                        If (lpData(lngIndex, lngRand) >= mlngTableEnemyHP(lngIndex)) Then
+
+                        End If
+                        .Cells(X + 1).Value = lpData(lngIndex, lngRand)
+                    End With
                 Next lngRand
 
                 With .Rows(GRID_EXTRA_ROW_STATUS)
@@ -339,6 +347,7 @@
             End If
             With .Columns(GRID_HEADER_COL_RAND)
                 .HeaderText = "乱数"
+                .SortMode = DataGridViewColumnSortMode.NotSortable
                 .Width = 48
                 .Frozen = True
             End With
@@ -401,12 +410,14 @@
         With grdDamage
             ' 特定の敵との戦闘
             With .Columns(GRID_COL_ATK)
-                .Width = 48
                 .HeaderText = "敵への攻撃"
+                .SortMode = DataGridViewColumnSortMode.NotSortable
+                .Width = 48
             End With
             With .Columns(GRID_COL_DEF)
-                .Width = 48
                 .HeaderText = "敵からの攻撃"
+                .SortMode = DataGridViewColumnSortMode.NotSortable
+                .Width = 48
             End With
 
             For lngRand = 0 To NUM_RAND_RANGES - 1
@@ -559,4 +570,5 @@
         If mblnFlagEvent = False Then Exit Sub
         RunCalcButtonHandler()
     End Sub
+
 End Class
