@@ -7,6 +7,13 @@
         SORT_ORDER_ASCENDING = 2            ' 昇順
     End Enum
 
+    ' データの色分けの基準
+    Enum ColoringMode
+        COLOR_MODE_NONE = 0
+        COLOR_MODE_ATK_DAMAGE = 1
+        COLOR_MODE_DEF_DAMAGE = 2
+    End Enum
+
     ' ステータステーブル
     Private mlngTableAttack() As Integer    ' 基本攻撃力
     Private mlngTableEnemyA() As Integer    ' 敵の攻撃力
@@ -118,6 +125,53 @@
     End Sub
 
     '------------------------------------------------------------------------------
+    ' 背景色を決定する
+    '------------------------------------------------------------------------------
+    Private Function DetermineBackColor(ByVal flagColor As ColoringMode, _
+                                        ByVal lngDamage As Integer, _
+                                        ByVal lngEnemyHP As Integer, _
+                                        ByVal lngEnemyA As Integer, _
+                                        ByVal defaultColor As Color) As Color
+
+        Dim bgColor As Color
+
+        bgColor = defaultColor
+        Select Case flagColor
+            Case ColoringMode.COLOR_MODE_ATK_DAMAGE
+                If (lngEnemyHP <= lngDamage) Then
+                    bgColor = Color.Cyan
+                ElseIf (lngEnemyHP <= lngDamage * 2) Then
+                    bgColor = Color.LightGreen
+                Else
+                    bgColor = defaultColor
+                End If
+
+            Case ColoringMode.COLOR_MODE_DEF_DAMAGE
+                If (lngDamage = 0) Then
+                    bgColor = Color.Cyan
+                ElseIf (lngDamage <= 2) Then
+                    bgColor = Color.LightGreen
+                ElseIf (lngEnemyA >= 15) Then
+                    If (lngDamage <= 10) Then
+                        bgColor = Color.LightGreen
+                    Else
+                        bgColor = defaultColor
+                    End If
+                ElseIf (lngDamage < lngEnemyA / 2) Then
+                    bgColor = Color.LightGreen
+                Else
+                    bgColor = defaultColor
+                End If
+
+            Case Else
+                bgColor = defaultColor
+        End Select
+
+        DetermineBackColor = bgColor
+    End Function
+
+
+    '------------------------------------------------------------------------------
     ' データをロードする
     '------------------------------------------------------------------------------
     Private Function LoadTableData() As Boolean
@@ -202,16 +256,20 @@
     '------------------------------------------------------------------------------
     ' データを表示する
     '------------------------------------------------------------------------------
-    Private Sub ShowEnemyDamageTableData(ByRef lpData(,) As Integer, _
+    Private Sub ShowEnemiesDamageTableData(ByRef lpData(,) As Integer, _
                               ByRef lpStatus() As Integer, _
                               ByVal strStatus As String, _
                               ByVal eColSortOrder As SortOrder, _
-                              ByVal eRowSortOrder As SortOrder)
+                              ByVal eRowSortOrder As SortOrder, _
+                              ByVal flagColor As ColoringMode)
         Dim X As Integer, Y As Integer
+        Dim lngDamage As Integer
         Dim lngRand As Integer
         Dim lngSort() As Integer
         Dim lngIndex As Integer
         Dim lngSumValue As Integer
+        Dim lngEnemyHP As Integer
+        Dim lngEnemyAtk As Integer
 
         ' 敵側のステータス順にソートする
         ReDim lngSort(0 To 31)
@@ -228,6 +286,9 @@
             ' 表示する
             For X = 0 To NUM_MONSTERS - 1
                 lngIndex = lngSort(X)
+                lngEnemyAtk = mlngTableEnemyA(lngIndex)
+                lngEnemyHP = mlngTableEnemyHP(lngIndex)
+
                 With .Columns(X + 1)
                     .HeaderText = mstrEnemyName(lngIndex)
                     .SortMode = DataGridViewColumnSortMode.NotSortable
@@ -240,40 +301,147 @@
                     Else
                         Y = lngRand
                     End If
-                    With .Rows(Y + NUM_HEADER_ROWS)
-                        If (lpData(lngIndex, lngRand) >= mlngTableEnemyHP(lngIndex)) Then
-
-                        End If
-                        .Cells(X + 1).Value = lpData(lngIndex, lngRand)
+                    With .Rows(Y + NUM_HEADER_ROWS).Cells(X + 1)
+                        lngDamage = lpData(lngIndex, lngRand)
+                        .Style.BackColor = DetermineBackColor(flagColor, lngDamage, lngEnemyHP, lngEnemyAtk, Color.White)
+                        .Value = lngDamage
                     End With
                 Next lngRand
 
-                With .Rows(GRID_EXTRA_ROW_STATUS)
-                    .Cells(X + 1).Value = lpStatus(lngIndex)
-                    .Cells(X + 1).Style.BackColor = Color.LightGray
+                With .Rows(GRID_EXTRA_ROW_STATUS).Cells(X + 1)
+                    .Value = lpStatus(lngIndex)
+                    .Style.BackColor = Color.LightGray
                 End With
-                With .Rows(GRID_EXTRA_ROW_MAX)
-                    .Cells(X + 1).Value = lpData(lngIndex, NUM_RAND_RANGES - 1)
-                    .Cells(X + 1).Style.BackColor = Color.LightYellow
+                With .Rows(GRID_EXTRA_ROW_MAX).Cells(X + 1)
+                    lngDamage = lpData(lngIndex, NUM_RAND_RANGES - 1)
+                    .Style.BackColor = DetermineBackColor(flagColor, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                    .Value = lngDamage
                 End With
-                With .Rows(GRID_EXTRA_ROW_MIN)
-                    .Cells(X + 1).Value = lpData(lngIndex, 0)
-                    .Cells(X + 1).Style.BackColor = Color.LightYellow
+                With .Rows(GRID_EXTRA_ROW_MIN).Cells(X + 1)
+                    lngDamage = lpData(lngIndex, 0)
+                    .Style.BackColor = DetermineBackColor(flagColor, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                    .Value = lngDamage
                 End With
-                With .Rows(GRID_EXTRA_ROW_AVERAGE)
+                With .Rows(GRID_EXTRA_ROW_AVERAGE).Cells(X + 1)
                     lngSumValue = lpData(lngIndex, TABLE_EXTRA_INDEX_SUM)
-                    .Cells(X + 1).Value = Format$( _
-                            lngSumValue / NUM_RAND_RANGES, "#0.0")
-                    .Cells(X + 1).Style.BackColor = Color.LightYellow
+                    lngDamage = Int(lngSumValue / NUM_RAND_RANGES)
+                    .Style.BackColor = DetermineBackColor(flagColor, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                    .Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0")
                 End With
-                With .Rows(GRID_EXTRA_ROW_HP)
-                    .Cells(X + 1).Value = mlngTableEnemyHP(lngIndex)
-                    .Cells(X + 1).Style.BackColor = Color.LightGray
+                With .Rows(GRID_EXTRA_ROW_HP).Cells(X + 1)
+                    .Value = lngEnemyHP
+                    .Style.BackColor = Color.LightGray
                 End With
 
             Next X
         End With
 
+    End Sub
+
+    '------------------------------------------------------------------------------
+    ' データを表示する
+    '------------------------------------------------------------------------------
+    Private Sub ShowOneEnemyDamageTableData(ByVal nEnemy As Integer, ByVal eRowSortOrder As SortOrder)
+
+        Dim lngRand As Integer
+        Dim Y As Integer
+        Dim lngDamage As Integer
+        Dim lngSumValue As Integer
+        Dim lngEnemyHP As Integer
+        Dim lngEnemyAtk As Integer
+
+        lngEnemyHP = mlngTableEnemyHP(nEnemy)
+        lngEnemyAtk = mlngTableEnemyA(nEnemy)
+
+        With grdDamage
+            ' 特定の敵との戦闘
+            With .Columns(GRID_COL_ATK)
+                .HeaderText = "敵への攻撃"
+                .SortMode = DataGridViewColumnSortMode.NotSortable
+                .Width = 48
+            End With
+            With .Columns(GRID_COL_DEF)
+                .HeaderText = "敵からの攻撃"
+                .SortMode = DataGridViewColumnSortMode.NotSortable
+                .Width = 48
+            End With
+
+            For lngRand = 0 To NUM_RAND_RANGES - 1
+                If (eRowSortOrder = SortOrder.SORT_ORDER_DESCENDING) Then
+                    Y = NUM_RAND_RANGES - 1 - lngRand
+                Else
+                    Y = lngRand
+                End If
+                With .Rows(Y + NUM_HEADER_ROWS)
+                    With .Cells(GRID_COL_ATK)
+                        lngDamage = mlngAtkDamage(nEnemy, lngRand)
+                        .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.White)
+                        .Value = lngDamage
+                    End With
+                    With .Cells(GRID_COL_DEF)
+                        lngDamage = mlngDefDamage(nEnemy, lngRand)
+                        .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.White)
+                        .Value = lngDamage
+                    End With
+                End With
+            Next lngRand
+
+            With .Rows(GRID_EXTRA_ROW_STATUS)
+                .Cells(GRID_HEADER_COL_RAND).Value = "守／攻"
+                With .Cells(GRID_COL_ATK)
+                    .Value = mlngTableEnemyD(nEnemy)
+                End With
+                With .Cells(GRID_COL_DEF)
+                    .Value = mlngTableEnemyA(nEnemy)
+                End With
+            End With
+            With .Rows(GRID_EXTRA_ROW_MAX)
+                .Cells(GRID_HEADER_COL_RAND).Value = "最大"
+                With .Cells(GRID_COL_ATK)
+                    lngDamage = mlngAtkDamage(nEnemy, NUM_RAND_RANGES - 1)
+                    .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                    .Value = lngDamage
+                End With
+                With .Cells(GRID_COL_DEF)
+                    lngDamage = mlngDefDamage(nEnemy, NUM_RAND_RANGES - 1)
+                    .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                    .Value = lngDamage
+                End With
+            End With
+            With .Rows(GRID_EXTRA_ROW_MIN)
+                .Cells(GRID_HEADER_COL_RAND).Value = "最小"
+                With .Cells(GRID_COL_ATK)
+                    lngDamage = mlngAtkDamage(nEnemy, 0)
+                    .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                    .Value = lngDamage
+                End With
+                With .Cells(GRID_COL_DEF)
+                    lngDamage = mlngDefDamage(nEnemy, 0)
+                    .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                    .Value = lngDamage
+                End With
+            End With
+            With .Rows(GRID_EXTRA_ROW_AVERAGE)
+                .Cells(GRID_HEADER_COL_RAND).Value = "平均"
+                With .Cells(GRID_COL_ATK)
+                    lngSumValue = mlngAtkDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
+                    lngDamage = Int(lngSumValue / NUM_RAND_RANGES)
+                    .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                    .Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
+                End With
+                With .Cells(GRID_COL_DEF)
+                    lngSumValue = mlngDefDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
+                    lngDamage = Int(lngSumValue / NUM_RAND_RANGES)
+                    .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                    .Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
+                End With
+            End With
+            With .Rows(GRID_EXTRA_ROW_HP)
+                .Cells(GRID_HEADER_COL_RAND).Value = "HP"
+                .Cells(GRID_COL_ATK).Value = mlngTableEnemyHP(nEnemy)
+                .Cells(GRID_COL_DEF).Value = ""
+            End With
+        End With
     End Sub
 
     '------------------------------------------------------------------------------
@@ -336,7 +504,6 @@
                                   ByVal eRowSortOrder As SortOrder)
         Dim lngRand As Integer
         Dim Y As Integer
-        Dim lngSumValue As Integer
 
         With grdDamage
             .RowCount = NUM_RAND_RANGES + NUM_HEADER_ROWS
@@ -397,69 +564,18 @@
 
         If (nMode = 0) Then
             ' 敵を攻撃した時のダメージ
-            ShowEnemyDamageTableData(mlngAtkDamage, mlngTableEnemyD, "守備力", _
-                                     eColSortOrder, eRowSortOrder)
+            ShowEnemiesDamageTableData(mlngAtkDamage, mlngTableEnemyD, "守備力", _
+                                       eColSortOrder, eRowSortOrder, ColoringMode.COLOR_MODE_ATK_DAMAGE)
             Exit Sub
         ElseIf (nMode = 1) Then
             ' 敵の攻撃を受けた時のダメージ
-            ShowEnemyDamageTableData(mlngDefDamage, mlngTableEnemyA, "攻撃力", _
-                                     eColSortOrder, eRowSortOrder)
+            ShowEnemiesDamageTableData(mlngDefDamage, mlngTableEnemyA, "攻撃力", _
+                                       eColSortOrder, eRowSortOrder, ColoringMode.COLOR_MODE_DEF_DAMAGE)
             Exit Sub
+        Else
+            '特定の敵との戦闘
+            ShowOneEnemyDamageTableData(nEnemy, eRowSortOrder)
         End If
-
-        With grdDamage
-            ' 特定の敵との戦闘
-            With .Columns(GRID_COL_ATK)
-                .HeaderText = "敵への攻撃"
-                .SortMode = DataGridViewColumnSortMode.NotSortable
-                .Width = 48
-            End With
-            With .Columns(GRID_COL_DEF)
-                .HeaderText = "敵からの攻撃"
-                .SortMode = DataGridViewColumnSortMode.NotSortable
-                .Width = 48
-            End With
-
-            For lngRand = 0 To NUM_RAND_RANGES - 1
-                If (eRowSortOrder = SortOrder.SORT_ORDER_DESCENDING) Then
-                    Y = NUM_RAND_RANGES - 1 - lngRand
-                Else
-                    Y = lngRand
-                End If
-                With .Rows(Y + NUM_HEADER_ROWS)
-                    .Cells(GRID_COL_ATK).Value = mlngAtkDamage(nEnemy, Y)
-                    .Cells(GRID_COL_DEF).Value = mlngDefDamage(nEnemy, Y)
-                End With
-            Next lngRand
-
-            With .Rows(GRID_EXTRA_ROW_STATUS)
-                .Cells(GRID_HEADER_COL_RAND).Value = "守／攻"
-                .Cells(GRID_COL_ATK).Value = mlngTableEnemyD(nEnemy)
-                .Cells(GRID_COL_DEF).Value = mlngTableEnemyA(nEnemy)
-            End With
-            With .Rows(GRID_EXTRA_ROW_MAX)
-                .Cells(GRID_HEADER_COL_RAND).Value = "最大"
-                .Cells(GRID_COL_ATK).Value = mlngAtkDamage(nEnemy, NUM_RAND_RANGES - 1)
-                .Cells(GRID_COL_DEF).Value = mlngAtkDamage(nEnemy, NUM_RAND_RANGES - 1)
-            End With
-            With .Rows(GRID_EXTRA_ROW_MIN)
-                .Cells(GRID_HEADER_COL_RAND).Value = "最小"
-                .Cells(GRID_COL_ATK).Value = mlngAtkDamage(nEnemy, 0)
-                .Cells(GRID_COL_DEF).Value = mlngAtkDamage(nEnemy, 0)
-            End With
-            With .Rows(GRID_EXTRA_ROW_AVERAGE)
-                .Cells(GRID_HEADER_COL_RAND).Value = "平均"
-                lngSumValue = mlngAtkDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
-                .Cells(GRID_COL_ATK).Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
-                lngSumValue = mlngDefDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
-                .Cells(GRID_COL_DEF).Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
-            End With
-            With .Rows(GRID_EXTRA_ROW_HP)
-                .Cells(GRID_HEADER_COL_RAND).Value = "HP"
-                .Cells(GRID_COL_ATK).Value = mlngTableEnemyHP(nEnemy)
-                .Cells(GRID_COL_DEF).Value = ""
-            End With
-        End With
 
     End Sub
 
