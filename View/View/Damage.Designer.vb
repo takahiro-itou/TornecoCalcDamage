@@ -320,7 +320,7 @@ Partial Class Damage
         '
         Me.AcceptButton = Me.cmdOK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.CancelButton = Me.cmdExit
         Me.ClientSize = New System.Drawing.Size(930, 709)
         Me.Controls.Add(Me.fraSort)
@@ -334,6 +334,7 @@ Partial Class Damage
         Me.Name = "Damage"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "トルネコの大冒険　戦闘ダメージ計算"
+
         CType(Me.grdDamage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.fraStatus.ResumeLayout(False)
         CType(Me.updShield, System.ComponentModel.ISupportInitialize).EndInit()
@@ -345,29 +346,34 @@ Partial Class Damage
         Me.ResumeLayout(False)
 
     End Sub
+
     Friend WithEvents cmdOK As System.Windows.Forms.Button
     Friend WithEvents cmdExit As System.Windows.Forms.Button
+
     Friend WithEvents grdDamage As System.Windows.Forms.DataGridView
+
     Friend WithEvents fraStatus As System.Windows.Forms.GroupBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents updLevel As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents updPower As System.Windows.Forms.NumericUpDown
-    Friend WithEvents updWeapon As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents updShield As System.Windows.Forms.NumericUpDown
+    Friend WithEvents updWeapon As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents lblAttack As System.Windows.Forms.Label
+    Friend WithEvents updShield As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents lblAttack As System.Windows.Forms.Label
+
     Friend WithEvents fraMode As System.Windows.Forms.GroupBox
-    Friend WithEvents optMode1 As System.Windows.Forms.RadioButton
     Friend WithEvents optMode0 As System.Windows.Forms.RadioButton
+    Friend WithEvents optMode1 As System.Windows.Forms.RadioButton
     Friend WithEvents optMode2 As System.Windows.Forms.RadioButton
     Friend WithEvents cmbEnemy As System.Windows.Forms.ComboBox
+
     Friend WithEvents fraSort As System.Windows.Forms.GroupBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents cmbRowSort As System.Windows.Forms.ComboBox
-    Friend WithEvents cmbColSort As System.Windows.Forms.ComboBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents cmbColSort As System.Windows.Forms.ComboBox
 
 End Class
