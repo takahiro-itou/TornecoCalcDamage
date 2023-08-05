@@ -98,6 +98,18 @@
   <data name="&gt;&gt;cmbEnemy.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="cmbEnemy.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="cmbEnemy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 88</value>
+  </data>
+  <data name="cmbEnemy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 20</value>
+  </data>
+  <data name="cmbEnemy.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
 
   <data name="&gt;&gt;cmdExit.Name" xml:space="preserve">
     <value>cmdExit</value>
@@ -521,30 +533,7 @@
   <data name="&gt;&gt;fraMode.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="cmbEnemy.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="cmbEnemy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 88</value>
-  </data>
-  <data name="cmbEnemy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 20</value>
-  </data>
-  <data name="cmbEnemy.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cmbEnemy.Name" xml:space="preserve">
-    <value>cmbEnemy</value>
-  </data>
-  <data name="&gt;&gt;cmbEnemy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbEnemy.Parent" xml:space="preserve">
-    <value>fraMode</value>
-  </data>
-  <data name="&gt;&gt;cmbEnemy.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
+
   <data name="optMode2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
