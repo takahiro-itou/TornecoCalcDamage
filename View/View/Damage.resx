@@ -111,30 +111,29 @@
     <value>E&amp;xit</value>
   </data>
 
+  <data name="&gt;&gt;cmdOK.Name" xml:space="preserve">
+    <value>cmdOK</value>
+  </data>
+  <data name="&gt;&gt;cmdOK.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cmdOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmdOK.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="cmdOK.Location" type="System.Drawing.Point, System.Drawing">
     <value>842, 24</value>
   </data>
   <data name="cmdOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 32</value>
   </data>
-
   <data name="cmdOK.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="cmdOK.Text" xml:space="preserve">
     <value>&amp;Calc</value>
-  </data>
-  <data name="&gt;&gt;cmdOK.Name" xml:space="preserve">
-    <value>cmdOK</value>
-  </data>
-  <data name="&gt;&gt;cmdOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmdOK.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cmdOK.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
 
   <data name="grdDamage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
