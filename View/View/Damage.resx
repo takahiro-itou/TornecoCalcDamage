@@ -139,17 +139,8 @@
   <data name="&gt;&gt;cmbRowSort.Name" xml:space="preserve">
     <value>cmbRowSort</value>
   </data>
-  <data name="&gt;&gt;cmbRowSort.Name" xml:space="preserve">
-    <value>cmbRowSort</value>
-  </data>
   <data name="&gt;&gt;cmbRowSort.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbRowSort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbRowSort.Parent" xml:space="preserve">
-    <value>fraSort</value>
   </data>
   <data name="&gt;&gt;cmbRowSort.Parent" xml:space="preserve">
     <value>fraSort</value>
@@ -157,10 +148,6 @@
   <data name="&gt;&gt;cmbRowSort.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;cmbRowSort.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-
   <data name="cmbRowSort.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
