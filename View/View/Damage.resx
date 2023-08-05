@@ -242,6 +242,34 @@
     <value>&amp;Mode</value>
   </data>
 
+  <data name="&gt;&gt;fraSort.Name" xml:space="preserve">
+    <value>fraSort</value>
+  </data>
+  <data name="&gt;&gt;fraSort.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fraSort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fraSort.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="fraSort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>722, 8</value>
+  </data>
+  <data name="fraSort.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 2, 4, 2</value>
+  </data>
+  <data name="fraSort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 120</value>
+  </data>
+  <data name="fraSort.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="fraSort.Text" xml:space="preserve">
+    <value>Sort</value>
+  </data>
+
   <data name="grdDamage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
@@ -695,33 +723,6 @@
   </data>
   <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="fraSort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>722, 8</value>
-  </data>
-  <data name="fraSort.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 2, 4, 2</value>
-  </data>
-  <data name="fraSort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 120</value>
-  </data>
-  <data name="fraSort.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="fraSort.Text" xml:space="preserve">
-    <value>Sort</value>
-  </data>
-  <data name="&gt;&gt;fraSort.Name" xml:space="preserve">
-    <value>fraSort</value>
-  </data>
-  <data name="&gt;&gt;fraSort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fraSort.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;fraSort.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
 
   <data name="Label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
