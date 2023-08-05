@@ -270,6 +270,34 @@
     <value>Sort</value>
   </data>
 
+  <data name="&gt;&gt;fraStatus.Name" xml:space="preserve">
+    <value>fraStatus</value>
+  </data>
+  <data name="&gt;&gt;fraStatus.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fraStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fraStatus.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="fraStatus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="fraStatus.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 2, 4, 2</value>
+  </data>
+  <data name="fraStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 120</value>
+  </data>
+  <data name="fraStatus.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="fraStatus.Text" xml:space="preserve">
+    <value>&amp;Status</value>
+  </data>
+
   <data name="grdDamage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
@@ -546,34 +574,6 @@
   </data>
   <data name="&gt;&gt;updLevel.ZOrder" xml:space="preserve">
     <value>8</value>
-  </data>
-
-  <data name="fraStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 8</value>
-  </data>
-  <data name="fraStatus.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 2, 4, 2</value>
-  </data>
-  <data name="fraStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>457, 120</value>
-  </data>
-  <data name="fraStatus.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="fraStatus.Text" xml:space="preserve">
-    <value>&amp;Status</value>
-  </data>
-  <data name="&gt;&gt;fraStatus.Name" xml:space="preserve">
-    <value>fraStatus</value>
-  </data>
-  <data name="&gt;&gt;fraStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fraStatus.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;fraStatus.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
 
 
