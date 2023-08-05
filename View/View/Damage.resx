@@ -323,6 +323,45 @@
     <value>2</value>
   </data>
 
+  <data name="&gt;&gt;optMode0.Name" xml:space="preserve">
+    <value>optMode0</value>
+  </data>
+  <data name="&gt;&gt;optMode0.Name" xml:space="preserve">
+    <value>optMode0</value>
+  </data>
+  <data name="&gt;&gt;optMode0.Parent" xml:space="preserve">
+    <value>fraMode</value>
+  </data>
+  <data name="&gt;&gt;optMode0.Parent" xml:space="preserve">
+    <value>fraMode</value>
+  </data>
+  <data name="&gt;&gt;optMode0.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optMode0.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optMode0.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;optMode0.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="optMode0.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="optMode0.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="optMode0.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 17</value>
+  </data>
+  <data name="optMode0.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="optMode0.Text" xml:space="preserve">
+    <value>Damage to Monsters</value>
+  </data>
 
  <data name="updShield.Location" type="System.Drawing.Point, System.Drawing">
     <value>336, 56</value>
@@ -456,18 +495,6 @@
   <data name="&gt;&gt;optMode1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;optMode0.Name" xml:space="preserve">
-    <value>optMode0</value>
-  </data>
-  <data name="&gt;&gt;optMode0.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;optMode0.Parent" xml:space="preserve">
-    <value>fraMode</value>
-  </data>
-  <data name="&gt;&gt;optMode0.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
 
   <data name="optMode2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -525,33 +552,6 @@
   </data>
   <data name="&gt;&gt;optMode1.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="optMode0.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="optMode0.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="optMode0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 17</value>
-  </data>
-  <data name="optMode0.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="optMode0.Text" xml:space="preserve">
-    <value>Damage to Monsters</value>
-  </data>
-  <data name="&gt;&gt;optMode0.Name" xml:space="preserve">
-    <value>optMode0</value>
-  </data>
-  <data name="&gt;&gt;optMode0.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;optMode0.Parent" xml:space="preserve">
-    <value>fraMode</value>
-  </data>
-  <data name="&gt;&gt;optMode0.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
 
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
