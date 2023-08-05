@@ -89,11 +89,26 @@
   <data name="&gt;&gt;ComboBox1.Name" xml:space="preserve">
     <value>ComboBox1</value>
   </data>
-  <data name="&gt;&gt;ComboBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ComboBox1.Name" xml:space="preserve">
+    <value>ComboBox1</value>
+  </data>
+
+  <data name="&gt;&gt;ComboBox1.Parent" xml:space="preserve">
+    <value>fraSort</value>
   </data>
   <data name="&gt;&gt;ComboBox1.Parent" xml:space="preserve">
     <value>fraSort</value>
+  </data>
+
+  <data name="&gt;&gt;ComboBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+
+  <data name="&gt;&gt;ComboBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;ComboBox1.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -110,18 +125,6 @@
   </data>
   <data name="ComboBox1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="&gt;&gt;ComboBox1.Name" xml:space="preserve">
-    <value>ComboBox1</value>
-  </data>
-  <data name="&gt;&gt;ComboBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ComboBox1.Parent" xml:space="preserve">
-    <value>fraSort</value>
-  </data>
-  <data name="&gt;&gt;ComboBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
 
   <data name="&gt;&gt;cmbEnemy.Name" xml:space="preserve">
@@ -147,6 +150,44 @@
   </data>
   <data name="cmbEnemy.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+
+  <data name="&gt;&gt;cmbRowSort.Name" xml:space="preserve">
+    <value>cmbRowSort</value>
+  </data>
+  <data name="&gt;&gt;cmbRowSort.Name" xml:space="preserve">
+    <value>cmbRowSort</value>
+  </data>
+  <data name="&gt;&gt;cmbRowSort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbRowSort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbRowSort.Parent" xml:space="preserve">
+    <value>fraSort</value>
+  </data>
+  <data name="&gt;&gt;cmbRowSort.Parent" xml:space="preserve">
+    <value>fraSort</value>
+  </data>
+  <data name="&gt;&gt;cmbRowSort.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;cmbRowSort.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+
+  <data name="cmbRowSort.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="cmbRowSort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 40</value>
+  </data>
+  <data name="cmbRowSort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 20</value>
+  </data>
+  <data name="cmbRowSort.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
 
   <data name="&gt;&gt;cmdExit.Name" xml:space="preserve">
@@ -669,18 +710,7 @@
   <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;cmbRowSort.Name" xml:space="preserve">
-    <value>cmbRowSort</value>
-  </data>
-  <data name="&gt;&gt;cmbRowSort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbRowSort.Parent" xml:space="preserve">
-    <value>fraSort</value>
-  </data>
-  <data name="&gt;&gt;cmbRowSort.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
+
   <data name="&gt;&gt;Label6.Name" xml:space="preserve">
     <value>Label6</value>
   </data>
@@ -754,30 +784,7 @@
   <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="cmbRowSort.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="cmbRowSort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 40</value>
-  </data>
-  <data name="cmbRowSort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 20</value>
-  </data>
-  <data name="cmbRowSort.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;cmbRowSort.Name" xml:space="preserve">
-    <value>cmbRowSort</value>
-  </data>
-  <data name="&gt;&gt;cmbRowSort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbRowSort.Parent" xml:space="preserve">
-    <value>fraSort</value>
-  </data>
-  <data name="&gt;&gt;cmbRowSort.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
+
   <data name="Label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
