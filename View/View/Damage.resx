@@ -298,6 +298,18 @@
     <value>&amp;Status</value>
   </data>
 
+  <data name="&gt;&gt;grdDamage.Name" xml:space="preserve">
+    <value>grdDamage</value>
+  </data>
+  <data name="&gt;&gt;grdDamage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grdDamage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grdDamage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="grdDamage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
@@ -310,17 +322,18 @@
   <data name="grdDamage.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;grdDamage.Name" xml:space="preserve">
-    <value>grdDamage</value>
+
+  <data name="&gt;&gt;lblAttack.Name" xml:space="preserve">
+    <value>lblAttack</value>
   </data>
-  <data name="&gt;&gt;grdDamage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblAttack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;grdDamage.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;lblAttack.Parent" xml:space="preserve">
+    <value>fraStatus</value>
   </data>
-  <data name="&gt;&gt;grdDamage.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;lblAttack.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lblAttack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -340,18 +353,7 @@
   <data name="lblAttack.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="&gt;&gt;lblAttack.Name" xml:space="preserve">
-    <value>lblAttack</value>
-  </data>
-  <data name="&gt;&gt;lblAttack.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblAttack.Parent" xml:space="preserve">
-    <value>fraStatus</value>
-  </data>
-  <data name="&gt;&gt;lblAttack.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
+
   <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
