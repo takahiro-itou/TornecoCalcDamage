@@ -682,23 +682,11 @@
   <data name="&gt;&gt;optMode0.Name" xml:space="preserve">
     <value>optMode0</value>
   </data>
-  <data name="&gt;&gt;optMode0.Name" xml:space="preserve">
-    <value>optMode0</value>
-  </data>
-  <data name="&gt;&gt;optMode0.Parent" xml:space="preserve">
-    <value>fraMode</value>
-  </data>
   <data name="&gt;&gt;optMode0.Parent" xml:space="preserve">
     <value>fraMode</value>
   </data>
   <data name="&gt;&gt;optMode0.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;optMode0.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;optMode0.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="&gt;&gt;optMode0.ZOrder" xml:space="preserve">
     <value>3</value>
