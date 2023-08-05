@@ -211,6 +211,37 @@
     <value>&amp;Calc</value>
   </data>
 
+  <data name="&gt;&gt;fraMode.Name" xml:space="preserve">
+    <value>fraMode</value>
+  </data>
+  <data name="&gt;&gt;fraMode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fraMode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fraMode.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="fraMode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="fraMode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>479, 8</value>
+  </data>
+  <data name="fraMode.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 2, 4, 2</value>
+  </data>
+  <data name="fraMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 120</value>
+  </data>
+  <data name="fraMode.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="fraMode.Text" xml:space="preserve">
+    <value>&amp;Mode</value>
+  </data>
+
   <data name="grdDamage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
@@ -516,9 +547,7 @@
   <data name="&gt;&gt;fraStatus.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="fraMode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
+
 
   <data name="&gt;&gt;optMode2.Name" xml:space="preserve">
     <value>optMode2</value>
@@ -555,33 +584,6 @@
   </data>
   <data name="&gt;&gt;optMode0.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="fraMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>479, 8</value>
-  </data>
-  <data name="fraMode.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 2, 4, 2</value>
-  </data>
-  <data name="fraMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 120</value>
-  </data>
-  <data name="fraMode.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="fraMode.Text" xml:space="preserve">
-    <value>&amp;Mode</value>
-  </data>
-  <data name="&gt;&gt;fraMode.Name" xml:space="preserve">
-    <value>fraMode</value>
-  </data>
-  <data name="&gt;&gt;fraMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fraMode.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;fraMode.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
 
   <data name="optMode2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
