@@ -735,31 +735,31 @@
     <value>Right</value>
   </data>
 
-  <data name="&gt;&gt;NumericUpDown1.Name" xml:space="preserve">
-    <value>NumericUpDown1</value>
+  <data name="&gt;&gt;updWeapon.Name" xml:space="preserve">
+    <value>updWeapon</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;updWeapon.Parent" xml:space="preserve">
     <value>fraStatus</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown1.Type" xml:space="preserve">
+  <data name="&gt;&gt;updWeapon.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;NumericUpDown1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;updWeapon.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="NumericUpDown1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="updWeapon.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 56</value>
   </data>
-  <data name="NumericUpDown1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="updWeapon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="NumericUpDown1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="updWeapon.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 19</value>
   </data>
-  <data name="NumericUpDown1.TabIndex" type="System.Int32, mscorlib">
+  <data name="updWeapon.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="NumericUpDown1.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="updWeapon.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
 
