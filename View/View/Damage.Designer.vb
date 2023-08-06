@@ -223,27 +223,18 @@ Partial Class Damage
         Me.fraMode.TabStop = False
         Me.fraMode.Text = "表示する内容"
         '
-        'cmbEnemy
+        ' optMode0
         '
-        Me.cmbEnemy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbEnemy.FormattingEnabled = True
-        Me.cmbEnemy.Location = New System.Drawing.Point(8, 88)
-        Me.cmbEnemy.Name = "cmbEnemy"
-        Me.cmbEnemy.Size = New System.Drawing.Size(217, 20)
-        Me.cmbEnemy.TabIndex = 18
+        Me.optMode0.BackColor = System.Drawing.Color.White
+        Me.optMode0.Location = New System.Drawing.Point(8, 16)
+        Me.optMode0.Name = "optMode0"
+        Me.optMode0.Size = New System.Drawing.Size(217, 17)
+        Me.optMode0.TabIndex = 15
+        Me.optMode0.TabStop = True
+        Me.optMode0.Text = "敵を攻撃した時のダメージ"
+        Me.optMode0.UseVisualStyleBackColor = False
         '
-        'optMode2
-        '
-        Me.optMode2.BackColor = System.Drawing.Color.White
-        Me.optMode2.Location = New System.Drawing.Point(8, 64)
-        Me.optMode2.Name = "optMode2"
-        Me.optMode2.Size = New System.Drawing.Size(217, 17)
-        Me.optMode2.TabIndex = 17
-        Me.optMode2.TabStop = True
-        Me.optMode2.Text = "特定の敵との戦闘"
-        Me.optMode2.UseVisualStyleBackColor = False
-        '
-        'optMode1
+        ' optMode1
         '
         Me.optMode1.BackColor = System.Drawing.Color.White
         Me.optMode1.Location = New System.Drawing.Point(8, 40)
@@ -254,16 +245,26 @@ Partial Class Damage
         Me.optMode1.Text = "敵から受けるダメージ"
         Me.optMode1.UseVisualStyleBackColor = False
         '
-        'optMode0
+        ' optMode2
         '
-        Me.optMode0.BackColor = System.Drawing.Color.White
-        Me.optMode0.Location = New System.Drawing.Point(8, 16)
-        Me.optMode0.Name = "optMode0"
-        Me.optMode0.Size = New System.Drawing.Size(217, 17)
-        Me.optMode0.TabIndex = 15
-        Me.optMode0.TabStop = True
-        Me.optMode0.Text = "敵を攻撃した時のダメージ"
-        Me.optMode0.UseVisualStyleBackColor = False
+        Me.optMode2.BackColor = System.Drawing.Color.White
+        Me.optMode2.Location = New System.Drawing.Point(8, 64)
+        Me.optMode2.Name = "optMode2"
+        Me.optMode2.Size = New System.Drawing.Size(217, 17)
+        Me.optMode2.TabIndex = 17
+        Me.optMode2.TabStop = True
+        Me.optMode2.Text = "特定の敵との戦闘"
+        Me.optMode2.UseVisualStyleBackColor = False
+        '
+        ' cmbEnemy
+        '
+        Me.cmbEnemy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbEnemy.FormattingEnabled = True
+        Me.cmbEnemy.Location = New System.Drawing.Point(8, 88)
+        Me.cmbEnemy.Name = "cmbEnemy"
+        Me.cmbEnemy.Size = New System.Drawing.Size(217, 20)
+        Me.cmbEnemy.TabIndex = 18
+
         '
         'fraSort
         '
