@@ -217,13 +217,11 @@ Partial Class Damage
         '
         ' optMode2
         '
+        resources.ApplyResources(Me.optMode2, "optMode2")
         Me.optMode2.BackColor = System.Drawing.Color.White
-        Me.optMode2.Location = New System.Drawing.Point(8, 64)
         Me.optMode2.Name = "optMode2"
-        Me.optMode2.Size = New System.Drawing.Size(217, 17)
-        Me.optMode2.TabIndex = 17
         Me.optMode2.TabStop = True
-        Me.optMode2.Text = "特定の敵との戦闘"
+        ' Me.optMode2.Text = "特定の敵との戦闘"
         Me.optMode2.UseVisualStyleBackColor = False
         '
         ' cmbEnemy
