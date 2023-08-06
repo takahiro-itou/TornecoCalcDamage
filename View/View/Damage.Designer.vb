@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Damage
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,41 +20,48 @@ Partial Class Damage
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Damage))
+
         Me.cmdOK = New System.Windows.Forms.Button()
         Me.cmdExit = New System.Windows.Forms.Button()
         Me.grdDamage = New System.Windows.Forms.DataGridView()
+
         Me.fraStatus = New System.Windows.Forms.GroupBox()
-        Me.lblAttack = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.updShield = New System.Windows.Forms.NumericUpDown()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.updWeapon = New System.Windows.Forms.NumericUpDown()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.updPower = New System.Windows.Forms.NumericUpDown()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.updLevel = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.updLevel = New System.Windows.Forms.NumericUpDown()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.updPower = New System.Windows.Forms.NumericUpDown()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.updWeapon = New System.Windows.Forms.NumericUpDown()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.updShield = New System.Windows.Forms.NumericUpDown()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblAttack = New System.Windows.Forms.Label()
+
         Me.fraMode = New System.Windows.Forms.GroupBox()
-        Me.cmbEnemy = New System.Windows.Forms.ComboBox()
-        Me.optMode2 = New System.Windows.Forms.RadioButton()
-        Me.optMode1 = New System.Windows.Forms.RadioButton()
         Me.optMode0 = New System.Windows.Forms.RadioButton()
+        Me.optMode1 = New System.Windows.Forms.RadioButton()
+        Me.optMode2 = New System.Windows.Forms.RadioButton()
+        Me.cmbEnemy = New System.Windows.Forms.ComboBox()
+
         Me.fraSort = New System.Windows.Forms.GroupBox()
-        Me.cmbColSort = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cmbRowSort = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.cmbRowSort = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cmbColSort = New System.Windows.Forms.ComboBox()
+
         CType(Me.grdDamage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.fraStatus.SuspendLayout()
-        CType(Me.updShield, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.updWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.updPower, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.updLevel, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.updPower, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.updWeapon, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.updShield, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.fraMode.SuspendLayout()
         Me.fraSort.SuspendLayout()
         Me.SuspendLayout()
+
         '
         'cmdOK
         '
