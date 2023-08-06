@@ -323,36 +323,6 @@
     <value>2</value>
   </data>
 
-
-  <data name="updShield.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 56</value>
-  </data>
-
-  <data name="updShield.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="updShield.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 19</value>
-  </data>
-  <data name="updShield.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="updShield.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;updShield.Name" xml:space="preserve">
-    <value>updShield</value>
-  </data>
-  <data name="&gt;&gt;updShield.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;updShield.Parent" xml:space="preserve">
-    <value>fraStatus</value>
-  </data>
-  <data name="&gt;&gt;updShield.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-
   <data name="NumericUpDown1.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 56</value>
   </data>
@@ -763,6 +733,34 @@
     <value>3</value>
   </data>
   <data name="updPower.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+
+  <data name="&gt;&gt;updShield.Name" xml:space="preserve">
+    <value>updShield</value>
+  </data>
+  <data name="&gt;&gt;updShield.Parent" xml:space="preserve">
+    <value>fraStatus</value>
+  </data>
+  <data name="&gt;&gt;updShield.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;updShield.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="updShield.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 56</value>
+  </data>
+  <data name="updShield.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="updShield.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 19</value>
+  </data>
+  <data name="updShield.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="updShield.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
 
