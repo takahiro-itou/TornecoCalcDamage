@@ -67,11 +67,11 @@
     <value>ＭＳ ゴシック, 9pt</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Torneco Damage Calc</value>
+    <value>トルネコの大冒険　戦闘ダメージ計算</value>
   </data>
 
   <data name="cmdExit.Text" xml:space="preserve">
-    <value>E&amp;xit</value>
+    <value>終了(&amp;X)</value>
   </data>
 
   <data name="cmdOK.Text" xml:space="preserve">

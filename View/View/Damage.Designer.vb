@@ -74,7 +74,6 @@ Partial Class Damage
         resources.ApplyResources(Me.cmdExit, "cmdExit")
         Me.cmdExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.cmdExit.Name = "cmdExit"
-        ' Me.cmdExit.Text = "終了(&X)"
         Me.cmdExit.UseVisualStyleBackColor = True
         '
         ' grdDamage
@@ -283,7 +282,6 @@ Partial Class Damage
         Me.MinimumSize = New System.Drawing.Size(945, 748)
         Me.Name = "Damage"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "トルネコの大冒険　戦闘ダメージ計算"
 
         CType(Me.grdDamage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.fraStatus.ResumeLayout(False)
