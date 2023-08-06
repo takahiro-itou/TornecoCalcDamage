@@ -75,7 +75,7 @@
   </data>
 
   <data name="cmdOK.Text" xml:space="preserve">
-    <value>&amp;Calc</value>
+    <value>計算(&amp;C)</value>
   </data>
 
   <data name="fraMode.Text" xml:space="preserve">

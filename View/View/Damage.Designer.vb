@@ -67,7 +67,6 @@ Partial Class Damage
         '
         resources.ApplyResources(Me.cmdOK, "cmdOK")
         Me.cmdOK.Name = "cmdOK"
-        ' Me.cmdOK.Text = "計算(&C)"
         Me.cmdOK.UseVisualStyleBackColor = True
         '
         ' cmdExit
