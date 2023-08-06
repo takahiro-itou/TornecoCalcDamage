@@ -88,12 +88,9 @@ Partial Class Damage
         Me.grdDamage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.grdDamage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdDamage.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.grdDamage.Location = New System.Drawing.Point(8, 128)
         Me.grdDamage.Name = "grdDamage"
         Me.grdDamage.ReadOnly = True
         Me.grdDamage.RowTemplate.Height = 21
-        Me.grdDamage.Size = New System.Drawing.Size(914, 568)
-        Me.grdDamage.TabIndex = 2
 
         '
         ' fraStatus
@@ -129,8 +126,8 @@ Partial Class Damage
         '
         ' Label2
         '
-        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
         ' Me.Label2.Text = "ちから(&P)："
         '
@@ -190,12 +187,10 @@ Partial Class Damage
         Me.fraMode.Controls.Add(Me.optMode1)
         Me.fraMode.Controls.Add(Me.optMode2)
         Me.fraMode.Controls.Add(Me.cmbEnemy)
-        Me.fraMode.Location = New System.Drawing.Point(480, 0)
+        resources.ApplyResources(Me.fraMode, "fraMode")
         Me.fraMode.Name = "fraMode"
-        Me.fraMode.Size = New System.Drawing.Size(233, 120)
-        Me.fraMode.TabIndex = 14
         Me.fraMode.TabStop = False
-        Me.fraMode.Text = "表示する内容"
+        ' Me.fraMode.Text = "表示する内容"
         '
         ' optMode0
         '
@@ -238,12 +233,10 @@ Partial Class Damage
         Me.fraSort.Controls.Add(Me.cmbRowSort)
         Me.fraSort.Controls.Add(Me.Label7)
         Me.fraSort.Controls.Add(Me.cmbColSort)
-        Me.fraSort.Location = New System.Drawing.Point(722, 0)
+        resources.ApplyResources(Me.fraSort, "fraSort")
         Me.fraSort.Name = "fraSort"
-        Me.fraSort.Size = New System.Drawing.Size(112, 120)
-        Me.fraSort.TabIndex = 15
         Me.fraSort.TabStop = False
-        Me.fraSort.Text = "ソート"
+        ' Me.fraSort.Text = "ソート"
         '
         ' Label6
         '
