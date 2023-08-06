@@ -79,15 +79,15 @@
   </data>
 
   <data name="fraMode.Text" xml:space="preserve">
-    <value>&amp;Mode</value>
+    <value>表示する内容(&amp;M)</value>
   </data>
 
   <data name="fraSort.Text" xml:space="preserve">
-    <value>Sort</value>
+    <value>ソート</value>
   </data>
 
   <data name="fraStatus.Text" xml:space="preserve">
-    <value>&amp;Status</value>
+    <value>トルネコのステータス(&amp;S)</value>
   </data>
 
   <data name="Label1.Text" xml:space="preserve">

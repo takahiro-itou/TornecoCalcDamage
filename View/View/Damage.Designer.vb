@@ -105,7 +105,6 @@ Partial Class Damage
         Me.fraStatus.Controls.Add(Me.lblAttack)
         resources.ApplyResources(Me.fraStatus, "fraStatus")
         Me.fraStatus.Name = "fraStatus"
-        ' Me.fraStatus.Text = "トルネコのステータス"
         '
         ' Label1
         '
@@ -188,7 +187,6 @@ Partial Class Damage
         resources.ApplyResources(Me.fraMode, "fraMode")
         Me.fraMode.Name = "fraMode"
         Me.fraMode.TabStop = False
-        ' Me.fraMode.Text = "表示する内容"
         '
         ' optMode0
         '
@@ -234,7 +232,6 @@ Partial Class Damage
         resources.ApplyResources(Me.fraSort, "fraSort")
         Me.fraSort.Name = "fraSort"
         Me.fraSort.TabStop = False
-        ' Me.fraSort.Text = "ソート"
         '
         ' Label6
         '
