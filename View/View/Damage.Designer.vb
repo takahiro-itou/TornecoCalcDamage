@@ -208,13 +208,11 @@ Partial Class Damage
         '
         ' optMode1
         '
+        resources.ApplyResources(Me.optMode1, "optMode1")
         Me.optMode1.BackColor = System.Drawing.Color.White
-        Me.optMode1.Location = New System.Drawing.Point(8, 40)
         Me.optMode1.Name = "optMode1"
-        Me.optMode1.Size = New System.Drawing.Size(217, 17)
-        Me.optMode1.TabIndex = 16
         Me.optMode1.TabStop = True
-        Me.optMode1.Text = "敵から受けるダメージ"
+        ' Me.optMode1.Text = "敵から受けるダメージ"
         Me.optMode1.UseVisualStyleBackColor = False
         '
         ' optMode2
