@@ -226,12 +226,10 @@ Partial Class Damage
         '
         ' cmbEnemy
         '
-        Me.cmbEnemy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.cmbEnemy, "cmbEnemy")
+        Me.cmbEnemy.DropDownStyle = ComboBoxStyle.DropDownList
         Me.cmbEnemy.FormattingEnabled = True
-        Me.cmbEnemy.Location = New System.Drawing.Point(8, 88)
         Me.cmbEnemy.Name = "cmbEnemy"
-        Me.cmbEnemy.Size = New System.Drawing.Size(217, 20)
-        Me.cmbEnemy.TabIndex = 18
 
         '
         ' fraSort
@@ -255,13 +253,11 @@ Partial Class Damage
         '
         ' cmbRowSort
         '
-        Me.cmbRowSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.cmbRowSort, "cmbRowSort")
+        Me.cmbRowSort.DropDownStyle = ComboBoxStyle.DropDownList
         Me.cmbRowSort.FormattingEnabled = True
         Me.cmbRowSort.Items.AddRange(New Object() {"降順", "昇順"})
-        Me.cmbRowSort.Location = New System.Drawing.Point(8, 40)
         Me.cmbRowSort.Name = "cmbRowSort"
-        Me.cmbRowSort.Size = New System.Drawing.Size(96, 20)
-        Me.cmbRowSort.TabIndex = 19
         '
         ' Label7
         '
@@ -271,13 +267,11 @@ Partial Class Damage
         '
         ' cmbColSort
         '
-        Me.cmbColSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.cmbColSort, "cmbColSort")
+        Me.cmbColSort.DropDownStyle = ComboBoxStyle.DropDownList
         Me.cmbColSort.FormattingEnabled = True
         Me.cmbColSort.Items.AddRange(New Object() {"なし", "降順", "昇順"})
-        Me.cmbColSort.Location = New System.Drawing.Point(8, 88)
         Me.cmbColSort.Name = "cmbColSort"
-        Me.cmbColSort.Size = New System.Drawing.Size(96, 20)
-        Me.cmbColSort.TabIndex = 21
 
         '
         ' Damage
