@@ -381,31 +381,6 @@
     <value>4</value>
   </data>
 
-  <data name="updPower.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 24</value>
-  </data>
-  <data name="updPower.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 19</value>
-  </data>
-  <data name="updPower.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="updPower.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;updPower.Name" xml:space="preserve">
-    <value>updPower</value>
-  </data>
-  <data name="&gt;&gt;updPower.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;updPower.Parent" xml:space="preserve">
-    <value>fraStatus</value>
-  </data>
-  <data name="&gt;&gt;updPower.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
   </data>
@@ -763,6 +738,31 @@
     <value>1</value>
   </data>
   <data name="updLevel.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+
+  <data name="&gt;&gt;updPower.Name" xml:space="preserve">
+    <value>updPower</value>
+  </data>
+  <data name="&gt;&gt;updPower.Parent" xml:space="preserve">
+    <value>fraStatus</value>
+  </data>
+  <data name="&gt;&gt;updPower.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;updPower.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="updPower.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 24</value>
+  </data>
+  <data name="updPower.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 19</value>
+  </data>
+  <data name="updPower.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="updPower.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
   </data>
 
