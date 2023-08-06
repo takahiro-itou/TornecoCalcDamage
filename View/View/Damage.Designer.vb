@@ -212,10 +212,10 @@ Partial Class Damage
         '
         ' fraMode
         '
-        Me.fraMode.Controls.Add(Me.cmbEnemy)
-        Me.fraMode.Controls.Add(Me.optMode2)
-        Me.fraMode.Controls.Add(Me.optMode1)
         Me.fraMode.Controls.Add(Me.optMode0)
+        Me.fraMode.Controls.Add(Me.optMode1)
+        Me.fraMode.Controls.Add(Me.optMode2)
+        Me.fraMode.Controls.Add(Me.cmbEnemy)
         Me.fraMode.Location = New System.Drawing.Point(480, 0)
         Me.fraMode.Name = "fraMode"
         Me.fraMode.Size = New System.Drawing.Size(233, 120)
@@ -266,12 +266,12 @@ Partial Class Damage
         Me.cmbEnemy.TabIndex = 18
 
         '
-        'fraSort
+        ' fraSort
         '
-        Me.fraSort.Controls.Add(Me.cmbColSort)
-        Me.fraSort.Controls.Add(Me.Label7)
-        Me.fraSort.Controls.Add(Me.cmbRowSort)
         Me.fraSort.Controls.Add(Me.Label6)
+        Me.fraSort.Controls.Add(Me.cmbRowSort)
+        Me.fraSort.Controls.Add(Me.Label7)
+        Me.fraSort.Controls.Add(Me.cmbColSort)
         Me.fraSort.Location = New System.Drawing.Point(722, 0)
         Me.fraSort.Name = "fraSort"
         Me.fraSort.Size = New System.Drawing.Size(112, 120)
@@ -279,26 +279,16 @@ Partial Class Damage
         Me.fraSort.TabStop = False
         Me.fraSort.Text = "ソート"
         '
-        'cmbColSort
+        ' Label6
         '
-        Me.cmbColSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbColSort.FormattingEnabled = True
-        Me.cmbColSort.Items.AddRange(New Object() {"なし", "降順", "昇順"})
-        Me.cmbColSort.Location = New System.Drawing.Point(8, 88)
-        Me.cmbColSort.Name = "cmbColSort"
-        Me.cmbColSort.Size = New System.Drawing.Size(96, 20)
-        Me.cmbColSort.TabIndex = 21
+        Me.Label6.Location = New System.Drawing.Point(8, 16)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(96, 16)
+        Me.Label6.TabIndex = 9
+        Me.Label6.Text = "行のソート"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'Label7
-        '
-        Me.Label7.Location = New System.Drawing.Point(8, 64)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(96, 16)
-        Me.Label7.TabIndex = 20
-        Me.Label7.Text = "モンスターのソート"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'cmbRowSort
+        ' cmbRowSort
         '
         Me.cmbRowSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbRowSort.FormattingEnabled = True
@@ -308,16 +298,27 @@ Partial Class Damage
         Me.cmbRowSort.Size = New System.Drawing.Size(96, 20)
         Me.cmbRowSort.TabIndex = 19
         '
-        'Label6
+        ' cmbColSort
         '
-        Me.Label6.Location = New System.Drawing.Point(8, 16)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(96, 16)
-        Me.Label6.TabIndex = 9
-        Me.Label6.Text = "行のソート"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.cmbColSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbColSort.FormattingEnabled = True
+        Me.cmbColSort.Items.AddRange(New Object() {"なし", "降順", "昇順"})
+        Me.cmbColSort.Location = New System.Drawing.Point(8, 88)
+        Me.cmbColSort.Name = "cmbColSort"
+        Me.cmbColSort.Size = New System.Drawing.Size(96, 20)
+        Me.cmbColSort.TabIndex = 21
         '
-        'Damage
+        ' Label7
+        '
+        Me.Label7.Location = New System.Drawing.Point(8, 64)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(96, 16)
+        Me.Label7.TabIndex = 20
+        Me.Label7.Text = "モンスターのソート"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+
+        '
+        ' Damage
         '
         Me.AcceptButton = Me.cmdOK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
