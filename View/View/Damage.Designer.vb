@@ -136,13 +136,10 @@ Partial Class Damage
         '
         ' updPower
         '
-        Me.updPower.Location = New System.Drawing.Point(336, 24)
+        resources.ApplyResources(Me.updPower, "updPower")
         Me.updPower.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
         Me.updPower.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.updPower.Name = "updPower"
-        Me.updPower.Size = New System.Drawing.Size(113, 19)
-        Me.updPower.TabIndex = 7
-        Me.updPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.updPower.Value = New Decimal(New Integer() {8, 0, 0, 0})
         '
         ' Label3
@@ -154,11 +151,9 @@ Partial Class Damage
         '
         ' updWeapon
         '
-        Me.updWeapon.Location = New System.Drawing.Point(112, 56)
+        resources.ApplyResources(Me.updWeapon, "updWeapon")
         Me.updWeapon.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
         Me.updWeapon.Name = "updWeapon"
-        Me.updWeapon.Size = New System.Drawing.Size(113, 19)
-        Me.updWeapon.TabIndex = 9
         Me.updWeapon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         ' Label4
@@ -170,11 +165,9 @@ Partial Class Damage
         '
         ' updShield
         '
-        Me.updShield.Location = New System.Drawing.Point(336, 56)
+        resources.ApplyResources(Me.updShield, "updShield")
         Me.updShield.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
         Me.updShield.Name = "updShield"
-        Me.updShield.Size = New System.Drawing.Size(113, 19)
-        Me.updShield.TabIndex = 11
         Me.updShield.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         ' Label5
