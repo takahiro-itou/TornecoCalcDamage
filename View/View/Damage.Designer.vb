@@ -78,8 +78,9 @@ Partial Class Damage
         ' Me.cmdExit.Text = "終了(&X)"
         Me.cmdExit.UseVisualStyleBackColor = True
         '
-        'grdDamage
+        ' grdDamage
         '
+        resources.ApplyResources(Me.grdDamage, "grdDamage")
         Me.grdDamage.AllowUserToAddRows = False
         Me.grdDamage.AllowUserToDeleteRows = False
         Me.grdDamage.AllowUserToResizeColumns = False
@@ -93,106 +94,32 @@ Partial Class Damage
         Me.grdDamage.RowTemplate.Height = 21
         Me.grdDamage.Size = New System.Drawing.Size(914, 568)
         Me.grdDamage.TabIndex = 2
+
         '
-        'fraStatus
+        ' fraStatus
         '
-        Me.fraStatus.Controls.Add(Me.lblAttack)
-        Me.fraStatus.Controls.Add(Me.Label5)
-        Me.fraStatus.Controls.Add(Me.updShield)
-        Me.fraStatus.Controls.Add(Me.Label4)
-        Me.fraStatus.Controls.Add(Me.updWeapon)
-        Me.fraStatus.Controls.Add(Me.Label3)
-        Me.fraStatus.Controls.Add(Me.updPower)
-        Me.fraStatus.Controls.Add(Me.Label2)
-        Me.fraStatus.Controls.Add(Me.updLevel)
         Me.fraStatus.Controls.Add(Me.Label1)
-        Me.fraStatus.Location = New System.Drawing.Point(8, 0)
+        Me.fraStatus.Controls.Add(Me.updLevel)
+        Me.fraStatus.Controls.Add(Me.Label2)
+        Me.fraStatus.Controls.Add(Me.updPower)
+        Me.fraStatus.Controls.Add(Me.Label3)
+        Me.fraStatus.Controls.Add(Me.updWeapon)
+        Me.fraStatus.Controls.Add(Me.Label4)
+        Me.fraStatus.Controls.Add(Me.updShield)
+        Me.fraStatus.Controls.Add(Me.Label5)
+        Me.fraStatus.Controls.Add(Me.lblAttack)
+        resources.ApplyResources(Me.fraStatus, "fraStatus")
         Me.fraStatus.Name = "fraStatus"
-        Me.fraStatus.Size = New System.Drawing.Size(457, 120)
-        Me.fraStatus.TabIndex = 3
-        Me.fraStatus.TabStop = False
-        Me.fraStatus.Text = "トルネコのステータス"
+        ' Me.fraStatus.Text = "トルネコのステータス"
         '
-        'lblAttack
+        ' Label1
         '
-        Me.lblAttack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblAttack.Location = New System.Drawing.Point(336, 88)
-        Me.lblAttack.Name = "lblAttack"
-        Me.lblAttack.Size = New System.Drawing.Size(113, 19)
-        Me.lblAttack.TabIndex = 13
-        Me.lblAttack.Text = "0"
-        Me.lblAttack.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.Name = "Label1"
+        ' Me.Label1.Text = "レベル(&L)："
         '
-        'Label5
-        '
-        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label5.Location = New System.Drawing.Point(232, 88)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(97, 19)
-        Me.Label5.TabIndex = 12
-        Me.Label5.Text = "攻撃力："
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'updShield
-        '
-        Me.updShield.Location = New System.Drawing.Point(336, 56)
-        Me.updShield.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
-        Me.updShield.Name = "updShield"
-        Me.updShield.Size = New System.Drawing.Size(113, 19)
-        Me.updShield.TabIndex = 11
-        Me.updShield.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label4
-        '
-        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label4.Location = New System.Drawing.Point(232, 56)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(97, 19)
-        Me.Label4.TabIndex = 10
-        Me.Label4.Text = "盾の強さ："
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'updWeapon
-        '
-        Me.updWeapon.Location = New System.Drawing.Point(112, 56)
-        Me.updWeapon.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
-        Me.updWeapon.Name = "updWeapon"
-        Me.updWeapon.Size = New System.Drawing.Size(113, 19)
-        Me.updWeapon.TabIndex = 9
-        Me.updWeapon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label3
-        '
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label3.Location = New System.Drawing.Point(8, 56)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(97, 19)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "剣の強さ："
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'updPower
-        '
-        Me.updPower.Location = New System.Drawing.Point(336, 24)
-        Me.updPower.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
-        Me.updPower.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.updPower.Name = "updPower"
-        Me.updPower.Size = New System.Drawing.Size(113, 19)
-        Me.updPower.TabIndex = 7
-        Me.updPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.updPower.Value = New Decimal(New Integer() {8, 0, 0, 0})
-        '
-        'Label2
-        '
-        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label2.Location = New System.Drawing.Point(232, 24)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(97, 19)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "ちから(&P)："
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'updLevel
+        ' updLevel
         '
         Me.updLevel.Location = New System.Drawing.Point(111, 24)
         Me.updLevel.Maximum = New Decimal(New Integer() {37, 0, 0, 0})
@@ -203,17 +130,87 @@ Partial Class Damage
         Me.updLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.updLevel.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
-        'Label1
+        ' Label2
         '
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label1.Location = New System.Drawing.Point(8, 24)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(97, 19)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "レベル(&L)："
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label2.Location = New System.Drawing.Point(232, 24)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(97, 19)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "ちから(&P)："
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'fraMode
+        ' updPower
+        '
+        Me.updPower.Location = New System.Drawing.Point(336, 24)
+        Me.updPower.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
+        Me.updPower.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.updPower.Name = "updPower"
+        Me.updPower.Size = New System.Drawing.Size(113, 19)
+        Me.updPower.TabIndex = 7
+        Me.updPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.updPower.Value = New Decimal(New Integer() {8, 0, 0, 0})
+        '
+        ' Label3
+        '
+        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label3.Location = New System.Drawing.Point(8, 56)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(97, 19)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "剣の強さ："
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        ' updWeapon
+        '
+        Me.updWeapon.Location = New System.Drawing.Point(112, 56)
+        Me.updWeapon.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
+        Me.updWeapon.Name = "updWeapon"
+        Me.updWeapon.Size = New System.Drawing.Size(113, 19)
+        Me.updWeapon.TabIndex = 9
+        Me.updWeapon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        ' Label4
+        '
+        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label4.Location = New System.Drawing.Point(232, 56)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(97, 19)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "盾の強さ："
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        ' updShield
+        '
+        Me.updShield.Location = New System.Drawing.Point(336, 56)
+        Me.updShield.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
+        Me.updShield.Name = "updShield"
+        Me.updShield.Size = New System.Drawing.Size(113, 19)
+        Me.updShield.TabIndex = 11
+        Me.updShield.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        ' Label5
+        '
+        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Label5.Location = New System.Drawing.Point(232, 88)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(97, 19)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "攻撃力："
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        ' lblAttack
+        '
+        Me.lblAttack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblAttack.Location = New System.Drawing.Point(336, 88)
+        Me.lblAttack.Name = "lblAttack"
+        Me.lblAttack.Size = New System.Drawing.Size(113, 19)
+        Me.lblAttack.TabIndex = 13
+        Me.lblAttack.Text = "0"
+        Me.lblAttack.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+
+        '
+        ' fraMode
         '
         Me.fraMode.Controls.Add(Me.cmbEnemy)
         Me.fraMode.Controls.Add(Me.optMode2)
