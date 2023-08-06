@@ -189,7 +189,6 @@ Partial Class Damage
         Me.optMode0.BackColor = System.Drawing.Color.White
         Me.optMode0.Name = "optMode0"
         Me.optMode0.TabStop = True
-        ' Me.optMode0.Text = "敵を攻撃した時のダメージ"
         Me.optMode0.UseVisualStyleBackColor = False
         '
         ' optMode1
@@ -198,7 +197,6 @@ Partial Class Damage
         Me.optMode1.BackColor = System.Drawing.Color.White
         Me.optMode1.Name = "optMode1"
         Me.optMode1.TabStop = True
-        ' Me.optMode1.Text = "敵から受けるダメージ"
         Me.optMode1.UseVisualStyleBackColor = False
         '
         ' optMode2
@@ -207,7 +205,6 @@ Partial Class Damage
         Me.optMode2.BackColor = System.Drawing.Color.White
         Me.optMode2.Name = "optMode2"
         Me.optMode2.TabStop = True
-        ' Me.optMode2.Text = "特定の敵との戦闘"
         Me.optMode2.UseVisualStyleBackColor = False
         '
         ' cmbEnemy

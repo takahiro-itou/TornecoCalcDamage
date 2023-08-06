@@ -123,15 +123,15 @@
   </data>
 
   <data name="optMode0.Text" xml:space="preserve">
-    <value>Damage to Monsters</value>
+    <value>敵を攻撃した時のダメージ</value>
   </data>
 
   <data name="optMode1.Text" xml:space="preserve">
-    <value>Damage from Monsters</value>
+    <value>敵から受けるダメージ</value>
   </data>
 
   <data name="optMode2.Text" xml:space="preserve">
-    <value>Battle to Specific Monster</value>
+    <value>特定の敵との戦闘</value>
   </data>
 
 </root>
