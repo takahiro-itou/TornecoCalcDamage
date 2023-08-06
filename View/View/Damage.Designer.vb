@@ -180,7 +180,7 @@ Partial Class Damage
         ' lblAttack
         '
         Me.lblAttack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        resources.ApplyResources(Me.Label5, "Label5")
+        resources.ApplyResources(Me.lblAttack, "lblAttack")
         Me.lblAttack.Name = "lblAttack"
         ' Me.lblAttack.Text = "0"
         '
