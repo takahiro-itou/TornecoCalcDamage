@@ -63,23 +63,19 @@ Partial Class Damage
         Me.SuspendLayout()
 
         '
-        'cmdOK
+        ' cmdOK
         '
-        Me.cmdOK.Location = New System.Drawing.Point(842, 16)
+        resources.ApplyResources(Me.cmdOK, "cmdOK")
         Me.cmdOK.Name = "cmdOK"
-        Me.cmdOK.Size = New System.Drawing.Size(80, 32)
-        Me.cmdOK.TabIndex = 0
-        Me.cmdOK.Text = "計算(&C)"
+        ' Me.cmdOK.Text = "計算(&C)"
         Me.cmdOK.UseVisualStyleBackColor = True
         '
-        'cmdExit
+        ' cmdExit
         '
+        resources.ApplyResources(Me.cmdExit, "cmdExit")
         Me.cmdExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.cmdExit.Location = New System.Drawing.Point(842, 64)
         Me.cmdExit.Name = "cmdExit"
-        Me.cmdExit.Size = New System.Drawing.Size(80, 32)
-        Me.cmdExit.TabIndex = 1
-        Me.cmdExit.Text = "終了(&X)"
+        ' Me.cmdExit.Text = "終了(&X)"
         Me.cmdExit.UseVisualStyleBackColor = True
         '
         'grdDamage
