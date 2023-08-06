@@ -111,11 +111,11 @@
   </data>
 
   <data name="Label6.Text" xml:space="preserve">
-    <value>Rows</value>
+    <value>行のソート</value>
   </data>
 
   <data name="Label7.Text" xml:space="preserve">
-    <value>Columns</value>
+    <value>モンスターのソート</value>
   </data>
 
   <data name="lblAttack.Text" xml:space="preserve">

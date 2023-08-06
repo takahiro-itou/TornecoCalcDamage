@@ -232,7 +232,6 @@ Partial Class Damage
         '
         resources.ApplyResources(Me.Label6, "Label6")
         Me.Label6.Name = "Label6"
-        ' Me.Label6.Text = "行のソート"
         '
         ' cmbRowSort
         '
@@ -246,7 +245,6 @@ Partial Class Damage
         '
         resources.ApplyResources(Me.Label7, "Label7")
         Me.Label7.Name = "Label7"
-        ' Me.Label7.Text = "モンスターのソート"
         '
         ' cmbColSort
         '
