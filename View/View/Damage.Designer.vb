@@ -121,24 +121,18 @@ Partial Class Damage
         '
         ' updLevel
         '
-        Me.updLevel.Location = New System.Drawing.Point(111, 24)
+        resources.ApplyResources(Me.updLevel, "updLevel")
         Me.updLevel.Maximum = New Decimal(New Integer() {37, 0, 0, 0})
         Me.updLevel.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.updLevel.Name = "updLevel"
-        Me.updLevel.Size = New System.Drawing.Size(113, 19)
-        Me.updLevel.TabIndex = 5
-        Me.updLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.updLevel.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         ' Label2
         '
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label2.Location = New System.Drawing.Point(232, 24)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(97, 19)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "ちから(&P)："
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        ' Me.Label2.Text = "ちから(&P)："
         '
         ' updPower
         '
@@ -154,12 +148,9 @@ Partial Class Damage
         ' Label3
         '
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label3.Location = New System.Drawing.Point(8, 56)
+        resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(97, 19)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "剣の強さ："
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        ' Me.Label3.Text = "剣の強さ："
         '
         ' updWeapon
         '
@@ -173,12 +164,9 @@ Partial Class Damage
         ' Label4
         '
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label4.Location = New System.Drawing.Point(232, 56)
+        resources.ApplyResources(Me.Label4, "Label4")
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(97, 19)
-        Me.Label4.TabIndex = 10
-        Me.Label4.Text = "盾の強さ："
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        ' Me.Label4.Text = "盾の強さ："
         '
         ' updShield
         '
@@ -192,23 +180,16 @@ Partial Class Damage
         ' Label5
         '
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label5.Location = New System.Drawing.Point(232, 88)
+        resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(97, 19)
-        Me.Label5.TabIndex = 12
-        Me.Label5.Text = "攻撃力："
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        ' Me.Label5.Text = "攻撃力："
         '
         ' lblAttack
         '
         Me.lblAttack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblAttack.Location = New System.Drawing.Point(336, 88)
+        resources.ApplyResources(Me.Label5, "Label5")
         Me.lblAttack.Name = "lblAttack"
-        Me.lblAttack.Size = New System.Drawing.Size(113, 19)
-        Me.lblAttack.TabIndex = 13
-        Me.lblAttack.Text = "0"
-        Me.lblAttack.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-
+        ' Me.lblAttack.Text = "0"
         '
         ' fraMode
         '
@@ -281,12 +262,9 @@ Partial Class Damage
         '
         ' Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(8, 16)
+        resources.ApplyResources(Me.Label6, "Label6")
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(96, 16)
-        Me.Label6.TabIndex = 9
-        Me.Label6.Text = "行のソート"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        ' Me.Label6.Text = "行のソート"
         '
         ' cmbRowSort
         '
@@ -298,6 +276,12 @@ Partial Class Damage
         Me.cmbRowSort.Size = New System.Drawing.Size(96, 20)
         Me.cmbRowSort.TabIndex = 19
         '
+        ' Label7
+        '
+        resources.ApplyResources(Me.Label7, "Label7")
+        Me.Label7.Name = "Label7"
+        ' Me.Label7.Text = "モンスターのソート"
+        '
         ' cmbColSort
         '
         Me.cmbColSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -307,15 +291,6 @@ Partial Class Damage
         Me.cmbColSort.Name = "cmbColSort"
         Me.cmbColSort.Size = New System.Drawing.Size(96, 20)
         Me.cmbColSort.TabIndex = 21
-        '
-        ' Label7
-        '
-        Me.Label7.Location = New System.Drawing.Point(8, 64)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(96, 16)
-        Me.Label7.TabIndex = 20
-        Me.Label7.Text = "モンスターのソート"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
 
         '
         ' Damage
