@@ -114,7 +114,7 @@ Partial Class Damage
         '
         ' Label1
         '
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         ' Me.Label1.Text = "レベル(&L)："
