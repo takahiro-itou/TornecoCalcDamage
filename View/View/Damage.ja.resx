@@ -91,23 +91,23 @@
   </data>
 
   <data name="Label1.Text" xml:space="preserve">
-    <value>Level:</value>
+    <value>レベル(&amp;L)：</value>
   </data>
 
   <data name="Label2.Text" xml:space="preserve">
-    <value>Power:</value>
+    <value>ちから(&amp;P)：</value>
   </data>
 
   <data name="Label3.Text" xml:space="preserve">
-    <value>Weapon:</value>
+    <value>剣の強さ：</value>
   </data>
 
   <data name="Label4.Text" xml:space="preserve">
-    <value>Shield:</value>
+    <value>盾の強さ：</value>
   </data>
 
   <data name="Label5.Text" xml:space="preserve">
-    <value>Attack:</value>
+    <value>攻撃力：</value>
   </data>
 
   <data name="Label6.Text" xml:space="preserve">

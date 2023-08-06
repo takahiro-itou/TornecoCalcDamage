@@ -111,7 +111,6 @@ Partial Class Damage
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
-        ' Me.Label1.Text = "レベル(&L)："
         '
         ' updLevel
         '
@@ -126,7 +125,6 @@ Partial Class Damage
         Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
-        ' Me.Label2.Text = "ちから(&P)："
         '
         ' updPower
         '
@@ -141,7 +139,6 @@ Partial Class Damage
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.Name = "Label3"
-        ' Me.Label3.Text = "剣の強さ："
         '
         ' updWeapon
         '
@@ -155,7 +152,6 @@ Partial Class Damage
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         resources.ApplyResources(Me.Label4, "Label4")
         Me.Label4.Name = "Label4"
-        ' Me.Label4.Text = "盾の強さ："
         '
         ' updShield
         '
@@ -169,7 +165,6 @@ Partial Class Damage
         Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.Name = "Label5"
-        ' Me.Label5.Text = "攻撃力："
         '
         ' lblAttack
         '
