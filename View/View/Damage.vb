@@ -643,7 +643,7 @@
 
         With grdDamage
             .Width = Me.Width - 32
-            .Height = Me.Height - 180
+            .Height = Me.Height - 196
         End With
     End Sub
 
