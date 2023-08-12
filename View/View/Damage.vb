@@ -318,7 +318,9 @@ Private Sub ShowEnemiesDamageTableData(
                 End If
                 With .Rows(Y + NUM_HEADER_ROWS).Cells(X + 1)
                     lngDamage = lpData(lngIndex, lngRand)
-                    .Style.BackColor = DetermineBackColor(flagColor, lngDamage, lngEnemyHP, lngEnemyAtk, Color.White)
+                    .Style.BackColor = DetermineBackColor(
+                            flagColor, lngDamage, lngEnemyHP,
+                            lngEnemyAtk, Color.White)
                     .Value = lngDamage
                 End With
             Next lngRand
@@ -329,18 +331,24 @@ Private Sub ShowEnemiesDamageTableData(
             End With
             With .Rows(GRID_EXTRA_ROW_MAX).Cells(X + 1)
                 lngDamage = lpData(lngIndex, NUM_RAND_RANGES - 1)
-                .Style.BackColor = DetermineBackColor(flagColor, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                .Style.BackColor = DetermineBackColor(
+                        flagColor, lngDamage, lngEnemyHP,
+                        lngEnemyAtk, Color.LightYellow)
                 .Value = lngDamage
             End With
             With .Rows(GRID_EXTRA_ROW_MIN).Cells(X + 1)
                 lngDamage = lpData(lngIndex, 0)
-                .Style.BackColor = DetermineBackColor(flagColor, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                .Style.BackColor = DetermineBackColor(
+                        flagColor, lngDamage, lngEnemyHP,
+                        lngEnemyAtk, Color.LightYellow)
                 .Value = lngDamage
             End With
             With .Rows(GRID_EXTRA_ROW_AVERAGE).Cells(X + 1)
                 lngSumValue = lpData(lngIndex, TABLE_EXTRA_INDEX_SUM)
                 lngDamage = Int(lngSumValue / NUM_RAND_RANGES)
-                .Style.BackColor = DetermineBackColor(flagColor, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                .Style.BackColor = DetermineBackColor(
+                        flagColor, lngDamage, lngEnemyHP,
+                        lngEnemyAtk, Color.LightYellow)
                 .Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0")
             End With
             With .Rows(GRID_EXTRA_ROW_HP).Cells(X + 1)
@@ -353,10 +361,12 @@ Private Sub ShowEnemiesDamageTableData(
 
 End Sub
 
-'------------------------------------------------------------------------------
-' データを表示する
-'------------------------------------------------------------------------------
-Private Sub ShowOneEnemyDamageTableData(ByVal nEnemy As Integer, ByVal eRowSortOrder As SortOrder)
+''========================================================================
+Private Sub ShowOneEnemyDamageTableData(
+        ByVal nEnemy As Integer, ByVal eRowSortOrder As SortOrder)
+''--------------------------------------------------------------------
+''    データを表示する
+''--------------------------------------------------------------------
 
     Dim lngRand As Integer
     Dim Y As Integer
@@ -390,12 +400,16 @@ Private Sub ShowOneEnemyDamageTableData(ByVal nEnemy As Integer, ByVal eRowSortO
             With .Rows(Y + NUM_HEADER_ROWS)
                 With .Cells(GRID_COL_ATK)
                     lngDamage = mlngAtkDamage(nEnemy, lngRand)
-                    .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.White)
+                    .Style.BackColor = DetermineBackColor(
+                            ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage,
+                            lngEnemyHP, lngEnemyAtk, Color.White)
                     .Value = lngDamage
                 End With
                 With .Cells(GRID_COL_DEF)
                     lngDamage = mlngDefDamage(nEnemy, lngRand)
-                    .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.White)
+                    .Style.BackColor = DetermineBackColor(
+                            ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage,
+                            lngEnemyHP, lngEnemyAtk, Color.White)
                     .Value = lngDamage
                 End With
             End With
@@ -414,12 +428,16 @@ Private Sub ShowOneEnemyDamageTableData(ByVal nEnemy As Integer, ByVal eRowSortO
             .Cells(GRID_HEADER_COL_RAND).Value = "最大"
             With .Cells(GRID_COL_ATK)
                 lngDamage = mlngAtkDamage(nEnemy, NUM_RAND_RANGES - 1)
-                .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                .Style.BackColor = DetermineBackColor(
+                        ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage,
+                        lngEnemyHP, lngEnemyAtk, Color.LightYellow)
                 .Value = lngDamage
             End With
             With .Cells(GRID_COL_DEF)
                 lngDamage = mlngDefDamage(nEnemy, NUM_RAND_RANGES - 1)
-                .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                .Style.BackColor = DetermineBackColor(
+                        ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage,
+                        lngEnemyHP, lngEnemyAtk, Color.LightYellow)
                 .Value = lngDamage
             End With
         End With
@@ -427,12 +445,16 @@ Private Sub ShowOneEnemyDamageTableData(ByVal nEnemy As Integer, ByVal eRowSortO
             .Cells(GRID_HEADER_COL_RAND).Value = "最小"
             With .Cells(GRID_COL_ATK)
                 lngDamage = mlngAtkDamage(nEnemy, 0)
-                .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                .Style.BackColor = DetermineBackColor(
+                        ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage,
+                        lngEnemyHP, lngEnemyAtk, Color.LightYellow)
                 .Value = lngDamage
             End With
             With .Cells(GRID_COL_DEF)
                 lngDamage = mlngDefDamage(nEnemy, 0)
-                .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                .Style.BackColor = DetermineBackColor(
+                        ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage,
+                        lngEnemyHP, lngEnemyAtk, Color.LightYellow)
                 .Value = lngDamage
             End With
         End With
@@ -441,13 +463,17 @@ Private Sub ShowOneEnemyDamageTableData(ByVal nEnemy As Integer, ByVal eRowSortO
             With .Cells(GRID_COL_ATK)
                 lngSumValue = mlngAtkDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
                 lngDamage = Int(lngSumValue / NUM_RAND_RANGES)
-                .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                .Style.BackColor = DetermineBackColor(
+                        ColoringMode.COLOR_MODE_ATK_DAMAGE, lngDamage,
+                        lngEnemyHP, lngEnemyAtk, Color.LightYellow)
                 .Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
             End With
             With .Cells(GRID_COL_DEF)
                 lngSumValue = mlngDefDamage(nEnemy, TABLE_EXTRA_INDEX_SUM)
                 lngDamage = Int(lngSumValue / NUM_RAND_RANGES)
-                .Style.BackColor = DetermineBackColor(ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage, lngEnemyHP, lngEnemyAtk, Color.LightYellow)
+                .Style.BackColor = DetermineBackColor(
+                        ColoringMode.COLOR_MODE_DEF_DAMAGE, lngDamage,
+                        lngEnemyHP, lngEnemyAtk, Color.LightYellow)
                 .Value = Format$(lngSumValue / NUM_RAND_RANGES, "#0.0##")
             End With
         End With
