@@ -703,10 +703,12 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
     End With
 
     ' コントロールの初期化
-    updLevel.Value = My.Settings.Level
-    updPower.Value = My.Settings.Power
-    updWeapon.Value = My.Settings.Weapon
-    updShield.Value = My.Settings.Shield
+    With My.Settings
+        updLevel.Value = .Level
+        updPower.Value = .Power
+        updWeapon.Value = .Weapon
+        updShield.Value = .Shield
+    End With
     optMode1.Checked = True
 
     mblnFlagEvent = True
