@@ -708,7 +708,13 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
     RunCalcButtonHandler()
 End Sub
 
-Private Sub Damage_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+''========================================================================
+Private Sub Damage_Resize(sender As Object, e As EventArgs) _
+        Handles Me.Resize
+''--------------------------------------------------------------------
+''    フォームのリサイズイベントハンドラ
+''--------------------------------------------------------------------
+
     If mblnFlagEvent = False Then Exit Sub
 
     With grdDamage
