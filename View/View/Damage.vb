@@ -485,12 +485,15 @@ Private Sub ShowOneEnemyDamageTableData(
     End With
 End Sub
 
-'------------------------------------------------------------------------------
-' データ順にソートする
-'------------------------------------------------------------------------------
-Private Sub SortList(ByRef lpSortResult() As Integer, ByRef lpData() As Integer, _
-                     ByVal nStart As Integer, ByVal nEnd As Integer, _
-                     ByVal eSortOrder As SortOrder)
+''========================================================================
+Private Sub SortList(
+        ByRef lpSortResult() As Integer, ByRef lpData() As Integer,
+        ByVal nStart As Integer, ByVal nEnd As Integer,
+        ByVal eSortOrder As SortOrder)
+''--------------------------------------------------------------------
+''    データ順にソートする
+''--------------------------------------------------------------------
+
     Dim i As Integer, j As Integer
     Dim blnUsed() As Boolean
     Dim lngCurValue As Integer
