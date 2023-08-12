@@ -648,10 +648,12 @@ Private Sub cmdOK_Click(sender As Object, e As EventArgs) Handles cmdOK.Click
     RunCalcButtonHandler()
 End Sub
 
-'------------------------------------------------------------------------------
-' フォームのクローズイベントハンドラ
-'------------------------------------------------------------------------------
-Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+''========================================================================
+Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
+        Handles Me.FormClosing
+''--------------------------------------------------------------------
+''    フォームのクローズイベントハンドラ
+''--------------------------------------------------------------------
 
     My.Settings.Level = updLevel.Value
     My.Settings.Power = updPower.Value
