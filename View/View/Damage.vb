@@ -594,6 +594,13 @@
     End Sub
 
     '------------------------------------------------------------------------------
+    ' フォームのクローズイベントハンドラ
+    '------------------------------------------------------------------------------
+    Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+
+    End Sub
+
+    '------------------------------------------------------------------------------
     ' フォームのロードイベントハンドラ
     '------------------------------------------------------------------------------
     Private Sub Damage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -628,10 +635,10 @@
         End With
 
         ' コントロールの初期化
-        updLevel.Value = 1
-        updPower.Value = 8
-        updWeapon.Value = 0
-        updShield.Value = 0
+        updLevel.Value = My.Settings.Level
+        updPower.Value = My.Settings.Power
+        updWeapon.Value = My.Settings.Weapon
+        updShield.Value = My.Settings.Shield
         optMode1.Checked = True
 
         mblnFlagEvent = True
