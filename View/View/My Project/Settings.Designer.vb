@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
 
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.2.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -54,6 +54,77 @@ Namespace My
             End Get
         End Property
 
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("-1")>  _
+        Public Property WindowLeft() As Integer
+            Get
+                Return CType(Me("WindowLeft"),Integer)
+            End Get
+            Set
+                Me("WindowLeft") = value
+            End Set
+        End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("-1")>  _
+        Public Property WindowTop() As Integer
+            Get
+                Return CType(Me("WindowTop"),Integer)
+            End Get
+            Set
+                Me("WindowTop") = value
+            End Set
+        End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+        Public Property Level() As Integer
+            Get
+                Return CType(Me("Level"),Integer)
+            End Get
+            Set
+                Me("Level") = value
+            End Set
+        End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("8")>  _
+        Public Property Power() As Integer
+            Get
+                Return CType(Me("Power"),Integer)
+            End Get
+            Set
+                Me("Power") = value
+            End Set
+        End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property Weapon() As Integer
+            Get
+                Return CType(Me("Weapon"),Integer)
+            End Get
+            Set
+                Me("Weapon") = value
+            End Set
+        End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property Shield() As Integer
+            Get
+                Return CType(Me("Shield"),Integer)
+            End Get
+            Set
+                Me("Shield") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
