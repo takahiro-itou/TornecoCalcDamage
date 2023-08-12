@@ -598,6 +598,10 @@
     '------------------------------------------------------------------------------
     Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
+        My.Settings.Level = updLevel.Value
+        My.Settings.Power = updPower.Value
+        My.Settings.Weapon = updWeapon.Value
+        My.Settings.Shield = updShield.Value
     End Sub
 
     '------------------------------------------------------------------------------
