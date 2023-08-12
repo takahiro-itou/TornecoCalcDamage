@@ -746,7 +746,7 @@ Private Sub updPower_ValueChanged(sender As Object, e As EventArgs) _
 End Sub
 
 ''========================================================================
-Private Sub updShield_ValueChanged(sender As Object, e As EventArgs) \
+Private Sub updShield_ValueChanged(sender As Object, e As EventArgs) _
     Handles updShield.ValueChanged
 ''--------------------------------------------------------------------
 ''    アップダウンの値が変更された時のイベントハンドラ
@@ -756,7 +756,13 @@ Private Sub updShield_ValueChanged(sender As Object, e As EventArgs) \
     RunCalcButtonHandler()
 End Sub
 
-Private Sub updWeapon_ValueChanged(sender As Object, e As EventArgs) Handles updWeapon.ValueChanged
+''========================================================================
+Private Sub updWeapon_ValueChanged(sender As Object, e As EventArgs) _
+    Handles updWeapon.ValueChanged
+''--------------------------------------------------------------------
+''    アップダウンの値が変更された時のイベントハンドラ
+''--------------------------------------------------------------------
+
     If mblnFlagEvent = False Then Exit Sub
     RunCalcButtonHandler()
 End Sub
