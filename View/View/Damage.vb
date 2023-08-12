@@ -782,7 +782,13 @@ Private Sub optMode_CheckedChanged(sender As Object, e As EventArgs) _
     RunCalcButtonHandler()
 End Sub
 
-Private Sub cmbEnemy_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbEnemy.SelectedIndexChanged
+''========================================================================
+Private Sub cmbEnemy_SelectedIndexChanged(sender As Object, e As EventArgs) _
+    Handles cmbEnemy.SelectedIndexChanged
+''--------------------------------------------------------------------
+''    ドロップダウンリスト選択時のイベントハンドラ
+''--------------------------------------------------------------------
+
     If mblnFlagEvent = False Then Exit Sub
     RunCalcButtonHandler()
 End Sub
