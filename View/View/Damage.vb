@@ -540,12 +540,15 @@ Private Sub SortList(
 
 End Sub
 
-'------------------------------------------------------------------------------
-' ダメージのリストを表示する
-'------------------------------------------------------------------------------
-Private Sub UpdateDamageTable(ByVal nMode As Long, ByVal nEnemy As Long, _
-                              ByVal eColSortOrder As SortOrder, _
-                              ByVal eRowSortOrder As SortOrder)
+''========================================================================
+Private Sub UpdateDamageTable(
+        ByVal nMode As Long, ByVal nEnemy As Long,
+        ByVal eColSortOrder As SortOrder,
+        ByVal eRowSortOrder As SortOrder)
+''--------------------------------------------------------------------
+''    ダメージのリストを表示する
+''--------------------------------------------------------------------
+
     Dim lngRand As Integer
     Dim Y As Integer
 
@@ -608,13 +611,17 @@ Private Sub UpdateDamageTable(ByVal nMode As Long, ByVal nEnemy As Long, _
 
     If (nMode = 0) Then
         ' 敵を攻撃した時のダメージ
-        ShowEnemiesDamageTableData(mlngAtkDamage, mlngTableEnemyD, "守備力", _
-                                   eColSortOrder, eRowSortOrder, ColoringMode.COLOR_MODE_ATK_DAMAGE)
+        ShowEnemiesDamageTableData(
+                mlngAtkDamage, mlngTableEnemyD, "守備力",
+                eColSortOrder, eRowSortOrder,
+                ColoringMode.COLOR_MODE_ATK_DAMAGE)
         Exit Sub
     ElseIf (nMode = 1) Then
         ' 敵の攻撃を受けた時のダメージ
-        ShowEnemiesDamageTableData(mlngDefDamage, mlngTableEnemyA, "攻撃力", _
-                                   eColSortOrder, eRowSortOrder, ColoringMode.COLOR_MODE_DEF_DAMAGE)
+        ShowEnemiesDamageTableData(
+                mlngDefDamage, mlngTableEnemyA, "攻撃力",
+                eColSortOrder, eRowSortOrder,
+                ColoringMode.COLOR_MODE_DEF_DAMAGE)
         Exit Sub
     Else
         '特定の敵との戦闘
