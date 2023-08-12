@@ -725,7 +725,7 @@ End Sub
 
 ''========================================================================
 Private Sub updLevel_ValueChanged(sender As Object, e As EventArgs) _
-        Handles updLevel.ValueChanged
+    Handles updLevel.ValueChanged
 ''--------------------------------------------------------------------
 ''    アップダウンの値が変更された時のイベントハンドラ
 ''--------------------------------------------------------------------
@@ -734,7 +734,14 @@ Private Sub updLevel_ValueChanged(sender As Object, e As EventArgs) _
     RunCalcButtonHandler()
 End Sub
 
-Private Sub updPower_ValueChanged(sender As Object, e As EventArgs) Handles updPower.ValueChanged
+''========================================================================
+
+Private Sub updPower_ValueChanged(sender As Object, e As EventArgs) _
+    Handles updPower.ValueChanged
+''--------------------------------------------------------------------
+''    アップダウンの値が変更された時のイベントハンドラ
+''--------------------------------------------------------------------
+
     If mblnFlagEvent = False Then Exit Sub
     RunCalcButtonHandler()
 End Sub
