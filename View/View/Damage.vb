@@ -129,14 +129,16 @@ Private Sub CalcDamageTable(
     Next lngEnemy
 End Sub
 
-'------------------------------------------------------------------------------
-' 背景色を決定する
-'------------------------------------------------------------------------------
-Private Function DetermineBackColor(ByVal flagColor As ColoringMode, _
-                                    ByVal lngDamage As Integer, _
-                                    ByVal lngEnemyHP As Integer, _
-                                    ByVal lngEnemyA As Integer, _
-                                    ByVal defaultColor As Color) As Color
+''========================================================================
+Private Function DetermineBackColor(
+        ByVal flagColor As ColoringMode,
+        ByVal lngDamage As Integer,
+        ByVal lngEnemyHP As Integer,
+        ByVal lngEnemyA As Integer,
+        ByVal defaultColor As Color) As Color
+''--------------------------------------------------------------------
+''    背景色を決定する
+''--------------------------------------------------------------------
 
     Dim bgColor As Color
 
