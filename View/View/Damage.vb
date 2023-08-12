@@ -656,6 +656,9 @@ Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
 ''--------------------------------------------------------------------
 
     With My.Settings
+        .WindowLeft = Me.Left
+        .WindowTop = Me.Top
+
         .Level = updLevel.Value
         .Power = updPower.Value
         .Weapon = updWeapon.Value
@@ -704,6 +707,9 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
 
     ' コントロールの初期化
     With My.Settings
+        Me.Left = .WindowLeft
+        Me.Top = .WindowTop
+
         updLevel.Value = .Level
         updPower.Value = .Power
         updWeapon.Value = .Weapon
