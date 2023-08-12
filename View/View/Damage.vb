@@ -661,10 +661,12 @@ Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
     My.Settings.Shield = updShield.Value
 End Sub
 
-'------------------------------------------------------------------------------
-' フォームのロードイベントハンドラ
-'------------------------------------------------------------------------------
-Private Sub Damage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+''========================================================================
+Private Sub Damage_Load(sender As Object, e As EventArgs) _
+        Handles MyBase.Load
+''--------------------------------------------------------------------
+''    フォームのロードイベントハンドラ
+''--------------------------------------------------------------------
     Dim i As Integer
 
     ' 初期化中のイベントの処理を無効化しておく
