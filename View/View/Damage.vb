@@ -659,6 +659,8 @@ Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
     My.Settings.Power = updPower.Value
     My.Settings.Weapon = updWeapon.Value
     My.Settings.Shield = updShield.Value
+
+    My.Settings.Save()
 End Sub
 
 ''========================================================================
