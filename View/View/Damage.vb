@@ -767,8 +767,14 @@ Private Sub updWeapon_ValueChanged(sender As Object, e As EventArgs) _
     RunCalcButtonHandler()
 End Sub
 
+''========================================================================
 Private Sub optMode_CheckedChanged(sender As Object, e As EventArgs) _
-        Handles optMode0.CheckedChanged, optMode1.CheckedChanged, optMode2.CheckedChanged
+    Handles optMode0.CheckedChanged, _
+            optMode1.CheckedChanged, _
+            optMode2.CheckedChanged
+''--------------------------------------------------------------------
+''    ラジオボタン選択時のイベントハンドラ
+''--------------------------------------------------------------------
 
     If mblnFlagEvent = False Then Exit Sub
 
