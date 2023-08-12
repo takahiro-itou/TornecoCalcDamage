@@ -793,8 +793,14 @@ Private Sub cmbEnemy_SelectedIndexChanged(sender As Object, e As EventArgs) _
     RunCalcButtonHandler()
 End Sub
 
+''========================================================================
 Private Sub cmbSort_SelectedIndexChanged(sender As Object, e As EventArgs) _
-        Handles cmbColSort.SelectedIndexChanged, cmbRowSort.SelectedIndexChanged
+    Handles cmbColSort.SelectedIndexChanged, _
+            cmbRowSort.SelectedIndexChanged
+''--------------------------------------------------------------------
+''    ドロップダウンリスト選択時のイベントハンドラ
+''--------------------------------------------------------------------
+
     If mblnFlagEvent = False Then Exit Sub
     RunCalcButtonHandler()
 End Sub
