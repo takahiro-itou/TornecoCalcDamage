@@ -230,10 +230,11 @@ Private Function LoadTableData() As Boolean
     LoadTableData = True
 End Function
 
-'------------------------------------------------------------------------------
-' 計算を行う
-'------------------------------------------------------------------------------
+''========================================================================
 Private Sub RunCalcButtonHandler()
+''--------------------------------------------------------------------
+''    計算を行う
+''--------------------------------------------------------------------
     Dim lngMode As Integer
 
     If mblnFlagEvent = False Then Exit Sub
@@ -249,7 +250,8 @@ Private Sub RunCalcButtonHandler()
     mColSortOrder = cmbColSort.SelectedIndex
 
     ' ダメージテーブルを計算する
-    CalcDamageTable(updLevel.Value, updPower.Value, updWeapon.Value, updShield.Value)
+    CalcDamageTable(
+            updLevel.Value, updPower.Value, updWeapon.Value, updShield.Value)
 
     ' 表示する
     If optMode0.Checked = True Then
@@ -259,7 +261,8 @@ Private Sub RunCalcButtonHandler()
     ElseIf optMode2.Checked = True Then
         lngMode = 2
     End If
-    UpdateDamageTable(lngMode, cmbEnemy.SelectedIndex, mColSortOrder, mRowSortOrder)
+    UpdateDamageTable(
+            lngMode, cmbEnemy.SelectedIndex, mColSortOrder, mRowSortOrder)
 End Sub
 
 '------------------------------------------------------------------------------
