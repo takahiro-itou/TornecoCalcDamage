@@ -655,12 +655,15 @@ Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
 ''    フォームのクローズイベントハンドラ
 ''--------------------------------------------------------------------
 
-    My.Settings.Level = updLevel.Value
-    My.Settings.Power = updPower.Value
-    My.Settings.Weapon = updWeapon.Value
-    My.Settings.Shield = updShield.Value
+    With My.Settings
+        .Level = updLevel.Value
+        .Power = updPower.Value
+        .Weapon = updWeapon.Value
+        .Shield = updShield.Value
 
-    My.Settings.Save()
+        .Save()
+    End With
+
 End Sub
 
 ''========================================================================
