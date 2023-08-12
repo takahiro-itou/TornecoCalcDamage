@@ -723,7 +723,13 @@ Private Sub Damage_Resize(sender As Object, e As EventArgs) _
     End With
 End Sub
 
-Private Sub updLevel_ValueChanged(sender As Object, e As EventArgs) Handles updLevel.ValueChanged
+''========================================================================
+Private Sub updLevel_ValueChanged(sender As Object, e As EventArgs) _
+        Handles updLevel.ValueChanged
+''--------------------------------------------------------------------
+''    アップダウンの値が変更された時のイベントハンドラ
+''--------------------------------------------------------------------
+
     If mblnFlagEvent = False Then Exit Sub
     RunCalcButtonHandler()
 End Sub
