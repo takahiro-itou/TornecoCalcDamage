@@ -265,15 +265,18 @@ Private Sub RunCalcButtonHandler()
             lngMode, cmbEnemy.SelectedIndex, mColSortOrder, mRowSortOrder)
 End Sub
 
-'------------------------------------------------------------------------------
-' データを表示する
-'------------------------------------------------------------------------------
-Private Sub ShowEnemiesDamageTableData(ByRef lpData(,) As Integer, _
-                          ByRef lpStatus() As Integer, _
-                          ByVal strStatus As String, _
-                          ByVal eColSortOrder As SortOrder, _
-                          ByVal eRowSortOrder As SortOrder, _
-                          ByVal flagColor As ColoringMode)
+''========================================================================
+Private Sub ShowEnemiesDamageTableData(
+        ByRef lpData(,) As Integer,
+        ByRef lpStatus() As Integer,
+        ByVal strStatus As String,
+        ByVal eColSortOrder As SortOrder,
+        ByVal eRowSortOrder As SortOrder,
+        ByVal flagColor As ColoringMode)
+''--------------------------------------------------------------------
+''    データを表示する
+''--------------------------------------------------------------------
+
     Dim X As Integer, Y As Integer
     Dim lngDamage As Integer
     Dim lngRand As Integer
