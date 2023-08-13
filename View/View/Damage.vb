@@ -720,6 +720,7 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
 
         optMode0.Checked = .Mode0
         optMode1.Checked = .Mode1
+        optMode2.Checked = .Mode2
     End With
 
     mblnFlagEvent = True
