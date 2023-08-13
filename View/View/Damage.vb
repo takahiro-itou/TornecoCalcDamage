@@ -235,19 +235,21 @@ Private Sub RunCalcButtonHandler()
 ''--------------------------------------------------------------------
 ''    計算を行う
 ''--------------------------------------------------------------------
-    Dim lngMode As Integer
+Dim lngMode As Integer
+Dim colSortOrder As SortOrder
+Dim rowSortOrder As SortOrder
 
     If mblnFlagEvent = False Then Exit Sub
 
     ' ソート順序を決定する
     Select Case (cmbRowSort.SelectedIndex)
         Case 1
-            mRowSortOrder = SortOrder.SORT_ORDER_ASCENDING
+            rowSortOrder = SortOrder.SORT_ORDER_ASCENDING
         Case Else
-            mRowSortOrder = SortOrder.SORT_ORDER_DESCENDING
+            rowSortOrder = SortOrder.SORT_ORDER_DESCENDING
     End Select
 
-    mColSortOrder = cmbColSort.SelectedIndex
+    colSortOrder = cmbColSort.SelectedIndex
 
     ' ダメージテーブルを計算する
     CalcDamageTable(
@@ -262,7 +264,7 @@ Private Sub RunCalcButtonHandler()
         lngMode = 2
     End If
     UpdateDamageTable(
-            lngMode, cmbEnemy.SelectedIndex, mColSortOrder, mRowSortOrder)
+            lngMode, cmbEnemy.SelectedIndex, colSortOrder, rowSortOrder)
 End Sub
 
 ''========================================================================
