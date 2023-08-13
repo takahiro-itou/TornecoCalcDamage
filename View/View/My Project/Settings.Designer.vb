@@ -162,6 +162,18 @@ Namespace My
             End Set
         End Property
 
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+        Public Property ColSort() As Integer
+            Get
+                Return CType(Me("ColSort"),Integer)
+            End Get
+            Set
+                Me("ColSort") = value
+            End Set
+        End Property
+
     End Class
 End Namespace
 
