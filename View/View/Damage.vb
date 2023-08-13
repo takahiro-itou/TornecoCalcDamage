@@ -668,6 +668,8 @@ Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
         .Mode1Checked = optMode1.Checked
         .Mode2Checked = optMode2.Checked
 
+        .ColSort = cmbColSort.SelectedIndex
+
         .Save()
     End With
 
