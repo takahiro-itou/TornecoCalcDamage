@@ -723,6 +723,7 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
         updShield.Value = .Shield
 
         cmbColSort.SelectedIndex = .ColSort
+        cmbRowSort.SelectedIndex = .RowSort
 
         optMode0.Checked = .Mode0Checked
         optMode1.Checked = .Mode1Checked
