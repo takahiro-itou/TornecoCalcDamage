@@ -7,7 +7,7 @@
     <MyType>WindowsForms</MyType>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TornecoCalcDamageView</RootNamespace>
-    <StartupObject>View.My.MyApplication</StartupObject>
+    <StartupObject>TornecoCalcDamageView.My.MyApplication</StartupObject>
     <TargetFrameworks>
       net6.0-windows;
       net48;
