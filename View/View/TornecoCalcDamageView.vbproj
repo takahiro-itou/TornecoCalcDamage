@@ -6,7 +6,7 @@
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>View</RootNamespace>
+    <RootNamespace>TornecoCalcDamageView</RootNamespace>
     <StartupObject>View.My.MyApplication</StartupObject>
     <TargetFrameworks>
       net6.0-windows;
