@@ -138,7 +138,7 @@ Namespace My
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
         Friend ReadOnly Property Settings() As Global.TornecoCalcDamageView.My.MySettings
             Get
-                Return Global.View.My.MySettings.Default
+                Return Global.TornecoCalcDamageView.My.MySettings.Default
             End Get
         End Property
     End Module
