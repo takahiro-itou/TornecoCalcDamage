@@ -125,6 +125,19 @@ Namespace My
                 Me("Shield") = value
             End Set
         End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Mode0() As Boolean
+            Get
+                Return CType(Me("Mode0"),Boolean)
+            End Get
+            Set
+                Me("Mode0") = value
+            End Set
+        End Property
+
     End Class
 End Namespace
 
