@@ -665,6 +665,7 @@ Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
         .Shield = updShield.Value
 
         .ColSort = cmbColSort.SelectedIndex
+        .RowSort = cmbRowSort.SelectedIndex
 
         .Mode0Checked = optMode0.Checked
         .Mode1Checked = optMode1.Checked
