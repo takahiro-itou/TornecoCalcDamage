@@ -717,8 +717,8 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
         updShield.Value = .Shield
 
         optMode0.Checked = .Mode0
+        optMode1.Checked = .Mode1
     End With
-    optMode1.Checked = True
 
     mblnFlagEvent = True
     RunCalcButtonHandler()
