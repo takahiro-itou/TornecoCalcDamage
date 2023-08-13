@@ -150,6 +150,18 @@ Namespace My
             End Set
         End Property
 
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property Mode2() As Boolean
+            Get
+                Return CType(Me("Mode2"),Boolean)
+            End Get
+            Set
+                Me("Mode2") = value
+            End Set
+        End Property
+
     End Class
 End Namespace
 
