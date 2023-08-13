@@ -25,10 +25,6 @@ Private mstrEnemyName() As String       ' 敵の名前
 Private mlngAtkDamage(,) As Integer
 Private mlngDefDamage(,) As Integer
 
-' 行の表示順序
-Private mRowSortOrder As SortOrder
-Private mColSortOrder As SortOrder
-
 ' イベントチェーンの抑制フラグ
 Private mblnFlagEvent As Boolean
 
