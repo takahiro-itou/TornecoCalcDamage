@@ -664,11 +664,11 @@ Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
         .Weapon = updWeapon.Value
         .Shield = updShield.Value
 
+        .ColSort = cmbColSort.SelectedIndex
+
         .Mode0Checked = optMode0.Checked
         .Mode1Checked = optMode1.Checked
         .Mode2Checked = optMode2.Checked
-
-        .ColSort = cmbColSort.SelectedIndex
 
         .Save()
     End With
@@ -720,6 +720,8 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
         updPower.Value = .Power
         updWeapon.Value = .Weapon
         updShield.Value = .Shield
+
+        cmbColSort.SelectedIndex = .ColSort
 
         optMode0.Checked = .Mode0Checked
         optMode1.Checked = .Mode1Checked
