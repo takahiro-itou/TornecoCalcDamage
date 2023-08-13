@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>TornecoDamageCalc</AssemblyName>
+    <AssemblyName>TornecoCalcDamageView</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <OutputType>WinExe</OutputType>

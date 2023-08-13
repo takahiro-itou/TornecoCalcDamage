@@ -4,7 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "View", "View\View.vbproj", "{F7DF7994-DC9B-4B3C-8CCA-80C5841D52A3}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "View", "View\TornecoCalcDamageView.vbproj", "{F7DF7994-DC9B-4B3C-8CCA-80C5841D52A3}"
 EndProject
 
 Global
