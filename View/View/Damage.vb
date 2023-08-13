@@ -687,16 +687,6 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
     ' 初期化中のイベントの処理を無効化しておく
     mblnFlagEvent = False
 
-    mColSortOrder = SortOrder.SORT_ORDER_ASCENDING
-    mRowSortOrder = SortOrder.SORT_ORDER_DESCENDING
-
-    With cmbColSort
-        .SelectedIndex = mColSortOrder
-    End With
-    With cmbRowSort
-        .SelectedIndex = mRowSortOrder - 1
-    End With
-
     ' テーブルデータをロードする
     LoadTableData()
 
