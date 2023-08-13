@@ -20,13 +20,13 @@
     <Setting Name="Shield" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Mode0" Type="System.Boolean" Scope="User">
+    <Setting Name="Mode0Checked" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Mode1" Type="System.Boolean" Scope="User">
+    <Setting Name="Mode1Checked" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Mode2" Type="System.Boolean" Scope="User">
+    <Setting Name="Mode2Checked" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
