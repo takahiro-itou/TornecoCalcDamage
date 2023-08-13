@@ -714,6 +714,8 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
         updPower.Value = .Power
         updWeapon.Value = .Weapon
         updShield.Value = .Shield
+
+        optMode0.Checked = .Mode0
     End With
     optMode1.Checked = True
 
