@@ -664,9 +664,9 @@ Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
         .Weapon = updWeapon.Value
         .Shield = updShield.Value
 
-        .Mode0 = optMode0.Checked
-        .Mode1 = optMode1.Checked
-        .Mode2 = optMode2.Checked
+        .Mode0Checked = optMode0.Checked
+        .Mode1Checked = optMode1.Checked
+        .Mode2Checked = optMode2.Checked
 
         .Save()
     End With
@@ -719,9 +719,9 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
         updWeapon.Value = .Weapon
         updShield.Value = .Shield
 
-        optMode0.Checked = .Mode0
-        optMode1.Checked = .Mode1
-        optMode2.Checked = .Mode2
+        optMode0.Checked = .Mode0Chekced
+        optMode1.Checked = .Mode1Checked
+        optMode2.Checked = .Mode2Checked
     End With
 
     mblnFlagEvent = True
