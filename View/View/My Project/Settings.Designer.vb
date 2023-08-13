@@ -174,6 +174,18 @@ Namespace My
             End Set
         End Property
 
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property RowSort() As Integer
+            Get
+                Return CType(Me("RowSort"),Integer)
+            End Get
+            Set
+                Me("RowSort") = value
+            End Set
+        End Property
+
     End Class
 End Namespace
 
