@@ -2,12 +2,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>View</AssemblyName>
+    <AssemblyName>TornecoCalcDamageView</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>View</RootNamespace>
-    <StartupObject>View.My.MyApplication</StartupObject>
+    <RootNamespace>TornecoCalcDamageView</RootNamespace>
+    <StartupObject>TornecoCalcDamageView.My.MyApplication</StartupObject>
     <TargetFrameworks>
       net6.0-windows;
       net48;
