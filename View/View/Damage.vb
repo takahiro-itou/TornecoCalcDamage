@@ -664,6 +664,7 @@ Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
         .Weapon = updWeapon.Value
         .Shield = updShield.Value
 
+        .Mode0 = optMode0.Checked
         .Save()
     End With
 
