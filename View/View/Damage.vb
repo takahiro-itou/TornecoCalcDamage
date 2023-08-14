@@ -25,10 +25,6 @@ Private mstrEnemyName() As String       ' 敵の名前
 Private mlngAtkDamage(,) As Integer
 Private mlngDefDamage(,) As Integer
 
-' 行の表示順序
-Private mRowSortOrder As SortOrder
-Private mColSortOrder As SortOrder
-
 ' イベントチェーンの抑制フラグ
 Private mblnFlagEvent As Boolean
 
@@ -235,19 +231,21 @@ Private Sub RunCalcButtonHandler()
 ''--------------------------------------------------------------------
 ''    計算を行う
 ''--------------------------------------------------------------------
-    Dim lngMode As Integer
+Dim lngMode As Integer
+Dim colSortOrder As SortOrder
+Dim rowSortOrder As SortOrder
 
     If mblnFlagEvent = False Then Exit Sub
 
     ' ソート順序を決定する
     Select Case (cmbRowSort.SelectedIndex)
         Case 1
-            mRowSortOrder = SortOrder.SORT_ORDER_ASCENDING
+            rowSortOrder = SortOrder.SORT_ORDER_ASCENDING
         Case Else
-            mRowSortOrder = SortOrder.SORT_ORDER_DESCENDING
+            rowSortOrder = SortOrder.SORT_ORDER_DESCENDING
     End Select
 
-    mColSortOrder = cmbColSort.SelectedIndex
+    colSortOrder = cmbColSort.SelectedIndex
 
     ' ダメージテーブルを計算する
     CalcDamageTable(
@@ -262,7 +260,7 @@ Private Sub RunCalcButtonHandler()
         lngMode = 2
     End If
     UpdateDamageTable(
-            lngMode, cmbEnemy.SelectedIndex, mColSortOrder, mRowSortOrder)
+            lngMode, cmbEnemy.SelectedIndex, colSortOrder, rowSortOrder)
 End Sub
 
 ''========================================================================
@@ -664,6 +662,13 @@ Private Sub Damage_FormClosing(sender As Object, e As FormClosingEventArgs) _
         .Weapon = updWeapon.Value
         .Shield = updShield.Value
 
+        .ColSort = cmbColSort.SelectedIndex
+        .RowSort = cmbRowSort.SelectedIndex
+
+        .Mode0Checked = optMode0.Checked
+        .Mode1Checked = optMode1.Checked
+        .Mode2Checked = optMode2.Checked
+
         .Save()
     End With
 
@@ -679,16 +684,6 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
 
     ' 初期化中のイベントの処理を無効化しておく
     mblnFlagEvent = False
-
-    mColSortOrder = SortOrder.SORT_ORDER_ASCENDING
-    mRowSortOrder = SortOrder.SORT_ORDER_DESCENDING
-
-    With cmbColSort
-        .SelectedIndex = mColSortOrder
-    End With
-    With cmbRowSort
-        .SelectedIndex = mRowSortOrder - 1
-    End With
 
     ' テーブルデータをロードする
     LoadTableData()
@@ -714,8 +709,14 @@ Private Sub Damage_Load(sender As Object, e As EventArgs) _
         updPower.Value = .Power
         updWeapon.Value = .Weapon
         updShield.Value = .Shield
+
+        cmbColSort.SelectedIndex = .ColSort
+        cmbRowSort.SelectedIndex = .RowSort
+
+        optMode0.Checked = .Mode0Checked
+        optMode1.Checked = .Mode1Checked
+        optMode2.Checked = .Mode2Checked
     End With
-    optMode1.Checked = True
 
     mblnFlagEvent = True
     RunCalcButtonHandler()

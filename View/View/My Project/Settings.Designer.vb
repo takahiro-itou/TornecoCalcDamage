@@ -125,6 +125,67 @@ Namespace My
                 Me("Shield") = value
             End Set
         End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Mode0Checked() As Boolean
+            Get
+                Return CType(Me("Mode0Checked"),Boolean)
+            End Get
+            Set
+                Me("Mode0Checked") = value
+            End Set
+        End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property Mode1Checked() As Boolean
+            Get
+                Return CType(Me("Mode1Checked"),Boolean)
+            End Get
+            Set
+                Me("Mode1Checked") = value
+            End Set
+        End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property Mode2Checked() As Boolean
+            Get
+                Return CType(Me("Mode2Checked"),Boolean)
+            End Get
+            Set
+                Me("Mode2Checked") = value
+            End Set
+        End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+        Public Property ColSort() As Integer
+            Get
+                Return CType(Me("ColSort"),Integer)
+            End Get
+            Set
+                Me("ColSort") = value
+            End Set
+        End Property
+
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property RowSort() As Integer
+            Get
+                Return CType(Me("RowSort"),Integer)
+            End Get
+            Set
+                Me("RowSort") = value
+            End Set
+        End Property
+
     End Class
 End Namespace
 
